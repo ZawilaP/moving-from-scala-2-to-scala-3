@@ -1,0 +1,2553 @@
+code-metadata {
+    "exercise_000_sudoku_solver_initial_state"=[
+        {
+            ".scalafmt.conf" {
+                sha256=a08b9994293b62279fcbb35c072c9d9642e8e332a9794b1c4558c19491395463
+                size=1014
+            }
+        },
+        {
+            "build.sbt" {
+                sha256="97610aca7e4dd3300e343e4fb421b55da84122d0114669447c454b34a35be859"
+                size=429
+            }
+        },
+        {
+            "README.md" {
+                sha256=c0cc61b40ea7145779e95fd74199626828f1706d1a41dbedf4498929841d6268
+                size=7298
+            }
+        },
+        {
+            "IDE-Setup.md" {
+                sha256="07352702f9b238513e0fa486c3cd987253de815012930bf1fa3c31e3f8b3202e"
+                size=1326
+            }
+        },
+        {
+            "images/Markdown-viewer-IntelliJ.png" {
+                sha256=a955e797244aab81e4afd5ebb045fec53fd09ffa105bc1874cf23acdf7a88578
+                size=167695
+            }
+        },
+        {
+            "project/plugins.sbt" {
+                sha256=d9f63f018dce5afbeb95fd140e71cb939e72a39ba6aed3ae167fec320b579309
+                size=229
+            }
+        },
+        {
+            "project/Build.scala" {
+                sha256="6f724dda18b5f5ad20e72d12cbc8cae4852ee3a06f105e819d65a5b16c7a7733"
+                size=1126
+            }
+        },
+        {
+            "project/build.properties" {
+                sha256=af0e7e42f032e76c037ed4b5b6c8e44d29d4c1ec7a2637d5cb3eb172f3d3d2ab
+                size=18
+            }
+        },
+        {
+            "sudokus/001.sudoku" {
+                sha256="0c46c79740236f98cf834b1636b11b7d1160dc147afa84fffbd658325e591bb0"
+                size=90
+            }
+        },
+        {
+            "src/main/resources/sudokusolver.conf" {
+                sha256="814fce1a8c9d43def3dc55736e0e5c62bdc70256642fd0a933c8c4d2891c08a2"
+                size=105
+            }
+        },
+        {
+            "src/main/resources/application.conf" {
+                sha256=eff82cfabbaa1b7035eeb5de3cf6c8859ad030a5efa37eede3084e7bf07da99d
+                size=395
+            }
+        },
+        {
+            "src/main/resources/logback.xml" {
+                sha256="37bdb6d9fe106b318533539381420d268378f92f4cea40166781cf78a40b1b6d"
+                size=784
+            }
+        },
+        {
+            "src/test/resources/logback-test.xml" {
+                sha256="700561fccbcfd7ecbee1a18c8e6a22619b8ba1c8e97769c773ad6872e4851f70"
+                size=576
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/SudokuSolverMain.scala" {
+                sha256="95504390ab54a4ae5795e91ff78bbbd5ba19e0d36a545f41c51229a7e2d37840"
+                size=1866
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuProgressTracker.scala" {
+                sha256=eff6905b92b74d0a2d655789508b18f23f83288da00804ab39410949cee972e4
+                size=2599
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/package.scala" {
+                sha256="6f7e9461ccec58ff172c2241bee41e3cec09d7e6b4c638e88c249e78eedb1562"
+                size=3036
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuSolverSettings.scala" {
+                sha256=a4d2aa20202773f2ec2d4feed6d358423e7205e5d90777fb8a5e602de61f1629
+                size=656
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailType.scala" {
+                sha256="4dce0957beb1fedd63099b21f4dacd78c93b3af207e98e3cc24450857f4e0151"
+                size=221
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/ReductionRules.scala" {
+                sha256="686d95d20925e848cdf5e38b29de5cbba9db275e80c1a4f59a4f1d1aedfe877b"
+                size=1644
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuIO.scala" {
+                sha256="044b654efb4c69b47599bd8b5071bccfe51b663d21448dbafa5a8fecf6bb0b75"
+                size=3199
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/CellMappings.scala" {
+                sha256="0042911556f793c21eb6251ac2d7c4975108e0681e4da636fbfc419eb4d70c14"
+                size=779
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuProblemSender.scala" {
+                sha256=e21982f2164649161cd2a38bd44b074293d1c0981eabd9dd18a2838f730dcb5b
+                size=3411
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuSolver.scala" {
+                sha256=e24a54b5853750f5e4a17becd24c926d73b88cbc8b7573d6059f9fdeb88292ad
+                size=9041
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailProcessor.scala" {
+                sha256=e0ec34cadc1c08bff7cc8c40533f392c06e493607ca13b8d4ee6ab744681d324
+                size=4535
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/CellMappingSuite.scala" {
+                sha256="4a973dcf44751bae357c45a2471a847be22e9bdc7f32a024d7b03e123e49039f"
+                size=1798
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailProcessorSuite.scala" {
+                sha256="093e75130ca43ab44b7f737f54727e8a6c75f37fc0d73ee3a3e2b3cf10dbfc31"
+                size=3402
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/SudokuTestHelpers.scala" {
+                sha256="5a6ef3aa20529524c03b1eced80b02f9faf4836ac3721dcdcdf5dd4fbb40400d"
+                size=713
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/ReductionRuleSuite.scala" {
+                sha256="3e6e82d83b653c8b795183786615ab8f5fa0111aeb94bf1a645a43253222c2a5"
+                size=5701
+            }
+        }
+    ]
+    "exercise_001_dotty_deprecated_syntax_rewriting"=[
+        {
+            ".scalafmt.conf" {
+                sha256="63c628b3cce4c2df48fc471274bfe50163ddd7e447c510107bc88ad1a2fcb3c3"
+                size=1012
+            }
+        },
+        {
+            "build.sbt" {
+                sha256="516e72725ea19db2833ef03ab391927e38ecab1e1a34d6df121d115053d107a3"
+                size=427
+            }
+        },
+        {
+            "README.md" {
+                sha256=ba67022b6d51f67737f1ce23b3c5cf760b87ae113812496c22beb4a2311d707e
+                size=7374
+            }
+        },
+        {
+            "IDE-Setup.md" {
+                sha256=b70250c3faedd335db8d20273d90c956b247a39592252a891657d0d6755f1e45
+                size=1314
+            }
+        },
+        {
+            "images/Markdown-viewer-IntelliJ.png" {
+                sha256=f791aec7d6be3512b297989419ce34d12ff68e1cbbfb01d06a13621c2bf2e0ac
+                size=163492
+            }
+        },
+        {
+            "project/plugins.sbt" {
+                sha256=d9f63f018dce5afbeb95fd140e71cb939e72a39ba6aed3ae167fec320b579309
+                size=229
+            }
+        },
+        {
+            "project/Build.scala" {
+                sha256=b1f65fed9fcdf19e1454e6804d89e01b0a8a366bf878ebaacd8fa7d8a6fc261c
+                size=1154
+            }
+        },
+        {
+            "project/build.properties" {
+                sha256=af0e7e42f032e76c037ed4b5b6c8e44d29d4c1ec7a2637d5cb3eb172f3d3d2ab
+                size=18
+            }
+        },
+        {
+            "sudokus/001.sudoku" {
+                sha256="0c46c79740236f98cf834b1636b11b7d1160dc147afa84fffbd658325e591bb0"
+                size=90
+            }
+        },
+        {
+            "src/main/resources/sudokusolver.conf" {
+                sha256="814fce1a8c9d43def3dc55736e0e5c62bdc70256642fd0a933c8c4d2891c08a2"
+                size=105
+            }
+        },
+        {
+            "src/main/resources/application.conf" {
+                sha256=eff82cfabbaa1b7035eeb5de3cf6c8859ad030a5efa37eede3084e7bf07da99d
+                size=395
+            }
+        },
+        {
+            "src/main/resources/logback.xml" {
+                sha256="37bdb6d9fe106b318533539381420d268378f92f4cea40166781cf78a40b1b6d"
+                size=784
+            }
+        },
+        {
+            "src/test/resources/logback-test.xml" {
+                sha256="700561fccbcfd7ecbee1a18c8e6a22619b8ba1c8e97769c773ad6872e4851f70"
+                size=576
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/SudokuSolverMain.scala" {
+                sha256="95504390ab54a4ae5795e91ff78bbbd5ba19e0d36a545f41c51229a7e2d37840"
+                size=1866
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuProgressTracker.scala" {
+                sha256="09ce7440a35c70a484234097e02a020874715e730c56618b3bfbb33626de4b3c"
+                size=2599
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/package.scala" {
+                sha256="6f7e9461ccec58ff172c2241bee41e3cec09d7e6b4c638e88c249e78eedb1562"
+                size=3036
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuSolverSettings.scala" {
+                sha256="94fa12d341cc74abebbff9c467118838c2a6b31d47edeed4bb59f670ef9d851e"
+                size=656
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailType.scala" {
+                sha256="4dce0957beb1fedd63099b21f4dacd78c93b3af207e98e3cc24450857f4e0151"
+                size=221
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/ReductionRules.scala" {
+                sha256="686d95d20925e848cdf5e38b29de5cbba9db275e80c1a4f59a4f1d1aedfe877b"
+                size=1644
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuIO.scala" {
+                sha256="044b654efb4c69b47599bd8b5071bccfe51b663d21448dbafa5a8fecf6bb0b75"
+                size=3199
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/CellMappings.scala" {
+                sha256="0042911556f793c21eb6251ac2d7c4975108e0681e4da636fbfc419eb4d70c14"
+                size=779
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuProblemSender.scala" {
+                sha256="56adb8b4efa2b888c510b2a1b1043b3d28ddcca303a91ae7ce30fb3c62741cb2"
+                size=3413
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuSolver.scala" {
+                sha256="870dc86e76526b2ebd1c3668ac0c23d736040ff8b3d7060f8b0806859249e93a"
+                size=9235
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailProcessor.scala" {
+                sha256="8c200aac6e2a926fbf7620934b17d4e75b2a13ef938c75a931158da295ecd6de"
+                size=4535
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/CellMappingSuite.scala" {
+                sha256=f751705ff76f2b551730521b1c8759587d7311a2ca821eaa11755d25125d6baf
+                size=1798
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailProcessorSuite.scala" {
+                sha256=ca0bb66349df5a7632677cff227fc17e507cb262774d709fbceedc47a6bbc74c
+                size=3402
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/SudokuTestHelpers.scala" {
+                sha256="5a6ef3aa20529524c03b1eced80b02f9faf4836ac3721dcdcdf5dd4fbb40400d"
+                size=713
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/ReductionRuleSuite.scala" {
+                sha256="3e6e82d83b653c8b795183786615ab8f5fa0111aeb94bf1a645a43253222c2a5"
+                size=5701
+            }
+        }
+    ]
+    "exercise_002_dotty_new_syntax_and_indentation_based_syntax"=[
+        {
+            ".scalafmt.conf" {
+                sha256="63c628b3cce4c2df48fc471274bfe50163ddd7e447c510107bc88ad1a2fcb3c3"
+                size=1012
+            }
+        },
+        {
+            "build.sbt" {
+                sha256="516e72725ea19db2833ef03ab391927e38ecab1e1a34d6df121d115053d107a3"
+                size=427
+            }
+        },
+        {
+            "README.md" {
+                sha256=f2a6df8e1c7555f5fee23e8d7a7bd8c435f8c1e900f57469c7397f9252ca556d
+                size=4260
+            }
+        },
+        {
+            "IDE-Setup.md" {
+                sha256=b32bf5c56c3c53494c5abf38e2a0f1e407fdc1a614ac2efa7aac4d968cb6440c
+                size=1333
+            }
+        },
+        {
+            "images/Markdown-viewer-IntelliJ.png" {
+                sha256=f791aec7d6be3512b297989419ce34d12ff68e1cbbfb01d06a13621c2bf2e0ac
+                size=163492
+            }
+        },
+        {
+            "project/plugins.sbt" {
+                sha256=d9f63f018dce5afbeb95fd140e71cb939e72a39ba6aed3ae167fec320b579309
+                size=229
+            }
+        },
+        {
+            "project/Build.scala" {
+                sha256=b1f65fed9fcdf19e1454e6804d89e01b0a8a366bf878ebaacd8fa7d8a6fc261c
+                size=1154
+            }
+        },
+        {
+            "project/build.properties" {
+                sha256=af0e7e42f032e76c037ed4b5b6c8e44d29d4c1ec7a2637d5cb3eb172f3d3d2ab
+                size=18
+            }
+        },
+        {
+            "sudokus/001.sudoku" {
+                sha256="0c46c79740236f98cf834b1636b11b7d1160dc147afa84fffbd658325e591bb0"
+                size=90
+            }
+        },
+        {
+            "src/main/resources/sudokusolver.conf" {
+                sha256="814fce1a8c9d43def3dc55736e0e5c62bdc70256642fd0a933c8c4d2891c08a2"
+                size=105
+            }
+        },
+        {
+            "src/main/resources/application.conf" {
+                sha256=eff82cfabbaa1b7035eeb5de3cf6c8859ad030a5efa37eede3084e7bf07da99d
+                size=395
+            }
+        },
+        {
+            "src/main/resources/logback.xml" {
+                sha256="37bdb6d9fe106b318533539381420d268378f92f4cea40166781cf78a40b1b6d"
+                size=784
+            }
+        },
+        {
+            "src/test/resources/logback-test.xml" {
+                sha256="700561fccbcfd7ecbee1a18c8e6a22619b8ba1c8e97769c773ad6872e4851f70"
+                size=576
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/SudokuSolverMain.scala" {
+                sha256="50494e9b835d2c8a2bb0a69770115337b3d6b129f86603e8f7ab55ea2f00b3a2"
+                size=1854
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuProgressTracker.scala" {
+                sha256=c2dbf3fae88ac07e6a4dcc6b874f4b286e335fc66afad480f8269b986be1710b
+                size=2579
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/package.scala" {
+                sha256=c1430ac44eeceb5c9392d36fd77d38eb1a112c904346c63565a2d727b5e4ddf8
+                size=3003
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuSolverSettings.scala" {
+                sha256=adeea284ca877b20385661e4a65130bf1f17ccc110945c9bec4ee60a404b2bff
+                size=640
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailType.scala" {
+                sha256="4dce0957beb1fedd63099b21f4dacd78c93b3af207e98e3cc24450857f4e0151"
+                size=221
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/ReductionRules.scala" {
+                sha256="50da4881b6d0d66c86f64af1979b47a06da3a9177802141839222d1377e77e46"
+                size=1655
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuIO.scala" {
+                sha256=ee581935ed16cafe458ada3a9760eda2c1c28248e15db22124f2c5e990e45223
+                size=3059
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/CellMappings.scala" {
+                sha256="5a2d50e008f1a3f9f4f6dc909c4044ce5f4265e7a63cab37f93bc6c663fc00a1"
+                size=776
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuProblemSender.scala" {
+                sha256="871278c060fc2275829e889e5a08fd05eca1fb9d7aff4efab71af81ec2071e51"
+                size=3400
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuSolver.scala" {
+                sha256=a27280dfe2f15ca355a39c16f3fb5e026945085fc3af1efea13bc1808dd7adfc
+                size=8980
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailProcessor.scala" {
+                sha256=bc2dec9157e44c87cd5839bcbe0989415dbec1605fa53c80b290cb0ba4607d90
+                size=4488
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/CellMappingSuite.scala" {
+                sha256="029c37eb11e61e4ea3501236626ea78f9120ee0efae5e491b73702f73a65aa11"
+                size=1828
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailProcessorSuite.scala" {
+                sha256="2a023b467a3760eb418d98770ee156d0cf7f64f0e1dbcafbf5218f06d6078788"
+                size=3503
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/SudokuTestHelpers.scala" {
+                sha256=b9cc3783ab0ef20424e91e349dd67322cb62d8c6e32a4de849892dd0b8ca80e6
+                size=677
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/ReductionRuleSuite.scala" {
+                sha256=dc4e5abf0744bac0c812608675dc800c3b80df619bf6af51072058aa54061af1
+                size=5972
+            }
+        }
+    ]
+    "exercise_003_top_level_definitions"=[
+        {
+            ".scalafmt.conf" {
+                sha256="63c628b3cce4c2df48fc471274bfe50163ddd7e447c510107bc88ad1a2fcb3c3"
+                size=1012
+            }
+        },
+        {
+            "build.sbt" {
+                sha256="516e72725ea19db2833ef03ab391927e38ecab1e1a34d6df121d115053d107a3"
+                size=427
+            }
+        },
+        {
+            "README.md" {
+                sha256="1025c770dcc467f8190c33d01b5632c5f537f1ebb135f5377803dddcacb633fc"
+                size=2561
+            }
+        },
+        {
+            "IDE-Setup.md" {
+                sha256="07352702f9b238513e0fa486c3cd987253de815012930bf1fa3c31e3f8b3202e"
+                size=1326
+            }
+        },
+        {
+            "images/Markdown-viewer-IntelliJ.png" {
+                sha256=f791aec7d6be3512b297989419ce34d12ff68e1cbbfb01d06a13621c2bf2e0ac
+                size=163492
+            }
+        },
+        {
+            "project/plugins.sbt" {
+                sha256=d9f63f018dce5afbeb95fd140e71cb939e72a39ba6aed3ae167fec320b579309
+                size=229
+            }
+        },
+        {
+            "project/Build.scala" {
+                sha256=b1f65fed9fcdf19e1454e6804d89e01b0a8a366bf878ebaacd8fa7d8a6fc261c
+                size=1154
+            }
+        },
+        {
+            "project/build.properties" {
+                sha256=af0e7e42f032e76c037ed4b5b6c8e44d29d4c1ec7a2637d5cb3eb172f3d3d2ab
+                size=18
+            }
+        },
+        {
+            "sudokus/001.sudoku" {
+                sha256="0c46c79740236f98cf834b1636b11b7d1160dc147afa84fffbd658325e591bb0"
+                size=90
+            }
+        },
+        {
+            "src/main/resources/sudokusolver.conf" {
+                sha256="814fce1a8c9d43def3dc55736e0e5c62bdc70256642fd0a933c8c4d2891c08a2"
+                size=105
+            }
+        },
+        {
+            "src/main/resources/application.conf" {
+                sha256=eff82cfabbaa1b7035eeb5de3cf6c8859ad030a5efa37eede3084e7bf07da99d
+                size=395
+            }
+        },
+        {
+            "src/main/resources/logback.xml" {
+                sha256="37bdb6d9fe106b318533539381420d268378f92f4cea40166781cf78a40b1b6d"
+                size=784
+            }
+        },
+        {
+            "src/test/resources/logback-test.xml" {
+                sha256="700561fccbcfd7ecbee1a18c8e6a22619b8ba1c8e97769c773ad6872e4851f70"
+                size=576
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/SudokuSolverMain.scala" {
+                sha256="70fc5bff3b8ec9e4e4cf0cf593adaaa770f866dc45ed27f34df1135a43999938"
+                size=1853
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuProgressTracker.scala" {
+                sha256=c2dbf3fae88ac07e6a4dcc6b874f4b286e335fc66afad480f8269b986be1710b
+                size=2579
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuSolverSettings.scala" {
+                sha256=adeea284ca877b20385661e4a65130bf1f17ccc110945c9bec4ee60a404b2bff
+                size=640
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailType.scala" {
+                sha256="4dce0957beb1fedd63099b21f4dacd78c93b3af207e98e3cc24450857f4e0151"
+                size=221
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/TopLevelDefinitions.scala" {
+                sha256=ae30e1f9d9722fe7a83fd655b1483da2b5f6fc350cea893dfc53dbf33f350072
+                size=2944
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/ReductionRules.scala" {
+                sha256="50da4881b6d0d66c86f64af1979b47a06da3a9177802141839222d1377e77e46"
+                size=1655
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuIO.scala" {
+                sha256=ee581935ed16cafe458ada3a9760eda2c1c28248e15db22124f2c5e990e45223
+                size=3059
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/CellMappings.scala" {
+                sha256="5a2d50e008f1a3f9f4f6dc909c4044ce5f4265e7a63cab37f93bc6c663fc00a1"
+                size=776
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuProblemSender.scala" {
+                sha256="871278c060fc2275829e889e5a08fd05eca1fb9d7aff4efab71af81ec2071e51"
+                size=3400
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuSolver.scala" {
+                sha256=a27280dfe2f15ca355a39c16f3fb5e026945085fc3af1efea13bc1808dd7adfc
+                size=8980
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailProcessor.scala" {
+                sha256=bc2dec9157e44c87cd5839bcbe0989415dbec1605fa53c80b290cb0ba4607d90
+                size=4488
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/CellMappingSuite.scala" {
+                sha256="029c37eb11e61e4ea3501236626ea78f9120ee0efae5e491b73702f73a65aa11"
+                size=1828
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailProcessorSuite.scala" {
+                sha256="2a023b467a3760eb418d98770ee156d0cf7f64f0e1dbcafbf5218f06d6078788"
+                size=3503
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/SudokuTestHelpers.scala" {
+                sha256=db1fa234300a55c3eda997471044942da25429d754bf13fab2458a6b2dfcd8c2
+                size=697
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/ReductionRuleSuite.scala" {
+                sha256=dc4e5abf0744bac0c812608675dc800c3b80df619bf6af51072058aa54061af1
+                size=5972
+            }
+        }
+    ]
+    "exercise_004_parameter_untupling"=[
+        {
+            ".scalafmt.conf" {
+                sha256="63c628b3cce4c2df48fc471274bfe50163ddd7e447c510107bc88ad1a2fcb3c3"
+                size=1012
+            }
+        },
+        {
+            "build.sbt" {
+                sha256="516e72725ea19db2833ef03ab391927e38ecab1e1a34d6df121d115053d107a3"
+                size=427
+            }
+        },
+        {
+            "README.md" {
+                sha256="0bc512ad74ae50a4cea72d2d51260b4163e4fab4eeee9795159bc3d53442ebe4"
+                size=2619
+            }
+        },
+        {
+            "IDE-Setup.md" {
+                sha256="07352702f9b238513e0fa486c3cd987253de815012930bf1fa3c31e3f8b3202e"
+                size=1326
+            }
+        },
+        {
+            "images/Markdown-viewer-IntelliJ.png" {
+                sha256=f791aec7d6be3512b297989419ce34d12ff68e1cbbfb01d06a13621c2bf2e0ac
+                size=163492
+            }
+        },
+        {
+            "project/plugins.sbt" {
+                sha256=d9f63f018dce5afbeb95fd140e71cb939e72a39ba6aed3ae167fec320b579309
+                size=229
+            }
+        },
+        {
+            "project/Build.scala" {
+                sha256=b1f65fed9fcdf19e1454e6804d89e01b0a8a366bf878ebaacd8fa7d8a6fc261c
+                size=1154
+            }
+        },
+        {
+            "project/build.properties" {
+                sha256=af0e7e42f032e76c037ed4b5b6c8e44d29d4c1ec7a2637d5cb3eb172f3d3d2ab
+                size=18
+            }
+        },
+        {
+            "sudokus/001.sudoku" {
+                sha256="0c46c79740236f98cf834b1636b11b7d1160dc147afa84fffbd658325e591bb0"
+                size=90
+            }
+        },
+        {
+            "src/main/resources/sudokusolver.conf" {
+                sha256="814fce1a8c9d43def3dc55736e0e5c62bdc70256642fd0a933c8c4d2891c08a2"
+                size=105
+            }
+        },
+        {
+            "src/main/resources/application.conf" {
+                sha256=eff82cfabbaa1b7035eeb5de3cf6c8859ad030a5efa37eede3084e7bf07da99d
+                size=395
+            }
+        },
+        {
+            "src/main/resources/logback.xml" {
+                sha256="37bdb6d9fe106b318533539381420d268378f92f4cea40166781cf78a40b1b6d"
+                size=784
+            }
+        },
+        {
+            "src/test/resources/logback-test.xml" {
+                sha256="700561fccbcfd7ecbee1a18c8e6a22619b8ba1c8e97769c773ad6872e4851f70"
+                size=576
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/SudokuSolverMain.scala" {
+                sha256="70fc5bff3b8ec9e4e4cf0cf593adaaa770f866dc45ed27f34df1135a43999938"
+                size=1853
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuProgressTracker.scala" {
+                sha256="3874c5018c95a60a2e1286d7eac5da502741c3e24f36beed81cf1147dec3a82d"
+                size=2564
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuSolverSettings.scala" {
+                sha256=adeea284ca877b20385661e4a65130bf1f17ccc110945c9bec4ee60a404b2bff
+                size=640
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailType.scala" {
+                sha256="4dce0957beb1fedd63099b21f4dacd78c93b3af207e98e3cc24450857f4e0151"
+                size=221
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/TopLevelDefinitions.scala" {
+                sha256="61d2fe090171b7e1887eb351332082644f696c471ea9e71852e0de29c735304c"
+                size=2939
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/ReductionRules.scala" {
+                sha256=c48cbe47e9f4916097f4257572a371e5445e91a201fb19f4bd47422ae1d07890
+                size=1599
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuIO.scala" {
+                sha256=ee581935ed16cafe458ada3a9760eda2c1c28248e15db22124f2c5e990e45223
+                size=3059
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/CellMappings.scala" {
+                sha256="5a2d50e008f1a3f9f4f6dc909c4044ce5f4265e7a63cab37f93bc6c663fc00a1"
+                size=776
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuProblemSender.scala" {
+                sha256="7a873f16b1a5d6a2a15588c38ebb1c30fa68d1bd1226e7b4fba3d8df0ed54352"
+                size=3396
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuSolver.scala" {
+                sha256=a3acefcb54d82e42b4ceb93133247ccb27872b8224af149de5722503399fa109
+                size=8965
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailProcessor.scala" {
+                sha256=bc2dec9157e44c87cd5839bcbe0989415dbec1605fa53c80b290cb0ba4607d90
+                size=4488
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/CellMappingSuite.scala" {
+                sha256="029c37eb11e61e4ea3501236626ea78f9120ee0efae5e491b73702f73a65aa11"
+                size=1828
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailProcessorSuite.scala" {
+                sha256="2a023b467a3760eb418d98770ee156d0cf7f64f0e1dbcafbf5218f06d6078788"
+                size=3503
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/SudokuTestHelpers.scala" {
+                sha256=db1fa234300a55c3eda997471044942da25429d754bf13fab2458a6b2dfcd8c2
+                size=697
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/ReductionRuleSuite.scala" {
+                sha256=dc4e5abf0744bac0c812608675dc800c3b80df619bf6af51072058aa54061af1
+                size=5972
+            }
+        }
+    ]
+    "exercise_005_extension_methods"=[
+        {
+            ".scalafmt.conf" {
+                sha256="63c628b3cce4c2df48fc471274bfe50163ddd7e447c510107bc88ad1a2fcb3c3"
+                size=1012
+            }
+        },
+        {
+            "build.sbt" {
+                sha256="516e72725ea19db2833ef03ab391927e38ecab1e1a34d6df121d115053d107a3"
+                size=427
+            }
+        },
+        {
+            "README.md" {
+                sha256=c6be0be34a3e0fd75a0f97a933e8dfad0bcdc1261d4931f312f913b12884890c
+                size=3574
+            }
+        },
+        {
+            "IDE-Setup.md" {
+                sha256="07352702f9b238513e0fa486c3cd987253de815012930bf1fa3c31e3f8b3202e"
+                size=1326
+            }
+        },
+        {
+            "images/Markdown-viewer-IntelliJ.png" {
+                sha256=f791aec7d6be3512b297989419ce34d12ff68e1cbbfb01d06a13621c2bf2e0ac
+                size=163492
+            }
+        },
+        {
+            "project/plugins.sbt" {
+                sha256=d9f63f018dce5afbeb95fd140e71cb939e72a39ba6aed3ae167fec320b579309
+                size=229
+            }
+        },
+        {
+            "project/Build.scala" {
+                sha256=b1f65fed9fcdf19e1454e6804d89e01b0a8a366bf878ebaacd8fa7d8a6fc261c
+                size=1154
+            }
+        },
+        {
+            "project/build.properties" {
+                sha256=af0e7e42f032e76c037ed4b5b6c8e44d29d4c1ec7a2637d5cb3eb172f3d3d2ab
+                size=18
+            }
+        },
+        {
+            "sudokus/001.sudoku" {
+                sha256="0c46c79740236f98cf834b1636b11b7d1160dc147afa84fffbd658325e591bb0"
+                size=90
+            }
+        },
+        {
+            "src/main/resources/sudokusolver.conf" {
+                sha256="814fce1a8c9d43def3dc55736e0e5c62bdc70256642fd0a933c8c4d2891c08a2"
+                size=105
+            }
+        },
+        {
+            "src/main/resources/application.conf" {
+                sha256=eff82cfabbaa1b7035eeb5de3cf6c8859ad030a5efa37eede3084e7bf07da99d
+                size=395
+            }
+        },
+        {
+            "src/main/resources/logback.xml" {
+                sha256="37bdb6d9fe106b318533539381420d268378f92f4cea40166781cf78a40b1b6d"
+                size=784
+            }
+        },
+        {
+            "src/test/resources/logback-test.xml" {
+                sha256="700561fccbcfd7ecbee1a18c8e6a22619b8ba1c8e97769c773ad6872e4851f70"
+                size=576
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/SudokuSolverMain.scala" {
+                sha256="70fc5bff3b8ec9e4e4cf0cf593adaaa770f866dc45ed27f34df1135a43999938"
+                size=1853
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuProgressTracker.scala" {
+                sha256="3874c5018c95a60a2e1286d7eac5da502741c3e24f36beed81cf1147dec3a82d"
+                size=2564
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuSolverSettings.scala" {
+                sha256=adeea284ca877b20385661e4a65130bf1f17ccc110945c9bec4ee60a404b2bff
+                size=640
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailType.scala" {
+                sha256="4dce0957beb1fedd63099b21f4dacd78c93b3af207e98e3cc24450857f4e0151"
+                size=221
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/TopLevelDefinitions.scala" {
+                sha256=e72cdcd12ef34727cb195c05b45701d360fc7773b52c4baf30ed70de9924e0cc
+                size=3033
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/ReductionRules.scala" {
+                sha256="179d0a19d769b9be2ac861ed65a63b91ac3f18fb0365d0fbf407ed0a4b4af3f2"
+                size=1640
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuIO.scala" {
+                sha256=ee581935ed16cafe458ada3a9760eda2c1c28248e15db22124f2c5e990e45223
+                size=3059
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/CellMappings.scala" {
+                sha256="5a2d50e008f1a3f9f4f6dc909c4044ce5f4265e7a63cab37f93bc6c663fc00a1"
+                size=776
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuProblemSender.scala" {
+                sha256="7a873f16b1a5d6a2a15588c38ebb1c30fa68d1bd1226e7b4fba3d8df0ed54352"
+                size=3396
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuSolver.scala" {
+                sha256=a3acefcb54d82e42b4ceb93133247ccb27872b8224af149de5722503399fa109
+                size=8965
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailProcessor.scala" {
+                sha256=f190283b8e1b8acbbc6ee4bfbda30440a5e067b7a6ffc16724feedf87f63d83a
+                size=4435
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/CellMappingSuite.scala" {
+                sha256="029c37eb11e61e4ea3501236626ea78f9120ee0efae5e491b73702f73a65aa11"
+                size=1828
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailProcessorSuite.scala" {
+                sha256="2a023b467a3760eb418d98770ee156d0cf7f64f0e1dbcafbf5218f06d6078788"
+                size=3503
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/SudokuTestHelpers.scala" {
+                sha256="3bb4d12a3b796a3fece319d1bb858ed1f804439d6ee9fa6cdf2647139a6b3661"
+                size=617
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/ReductionRuleSuite.scala" {
+                sha256=dc4e5abf0744bac0c812608675dc800c3b80df619bf6af51072058aa54061af1
+                size=5972
+            }
+        }
+    ]
+    "exercise_006_using_and_summon"=[
+        {
+            ".scalafmt.conf" {
+                sha256="63c628b3cce4c2df48fc471274bfe50163ddd7e447c510107bc88ad1a2fcb3c3"
+                size=1012
+            }
+        },
+        {
+            "build.sbt" {
+                sha256="516e72725ea19db2833ef03ab391927e38ecab1e1a34d6df121d115053d107a3"
+                size=427
+            }
+        },
+        {
+            "README.md" {
+                sha256="1aa31626caca931e08c2a391caeae81a5ea783d31ea7f70f12185b9b9108be2e"
+                size=2128
+            }
+        },
+        {
+            "IDE-Setup.md" {
+                sha256="07352702f9b238513e0fa486c3cd987253de815012930bf1fa3c31e3f8b3202e"
+                size=1326
+            }
+        },
+        {
+            "images/Markdown-viewer-IntelliJ.png" {
+                sha256=f791aec7d6be3512b297989419ce34d12ff68e1cbbfb01d06a13621c2bf2e0ac
+                size=163492
+            }
+        },
+        {
+            "project/plugins.sbt" {
+                sha256=d9f63f018dce5afbeb95fd140e71cb939e72a39ba6aed3ae167fec320b579309
+                size=229
+            }
+        },
+        {
+            "project/Build.scala" {
+                sha256=b1f65fed9fcdf19e1454e6804d89e01b0a8a366bf878ebaacd8fa7d8a6fc261c
+                size=1154
+            }
+        },
+        {
+            "project/build.properties" {
+                sha256=af0e7e42f032e76c037ed4b5b6c8e44d29d4c1ec7a2637d5cb3eb172f3d3d2ab
+                size=18
+            }
+        },
+        {
+            "sudokus/001.sudoku" {
+                sha256="0c46c79740236f98cf834b1636b11b7d1160dc147afa84fffbd658325e591bb0"
+                size=90
+            }
+        },
+        {
+            "src/main/resources/sudokusolver.conf" {
+                sha256="814fce1a8c9d43def3dc55736e0e5c62bdc70256642fd0a933c8c4d2891c08a2"
+                size=105
+            }
+        },
+        {
+            "src/main/resources/application.conf" {
+                sha256=eff82cfabbaa1b7035eeb5de3cf6c8859ad030a5efa37eede3084e7bf07da99d
+                size=395
+            }
+        },
+        {
+            "src/main/resources/logback.xml" {
+                sha256="37bdb6d9fe106b318533539381420d268378f92f4cea40166781cf78a40b1b6d"
+                size=784
+            }
+        },
+        {
+            "src/test/resources/logback-test.xml" {
+                sha256="700561fccbcfd7ecbee1a18c8e6a22619b8ba1c8e97769c773ad6872e4851f70"
+                size=576
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/SudokuSolverMain.scala" {
+                sha256="70fc5bff3b8ec9e4e4cf0cf593adaaa770f866dc45ed27f34df1135a43999938"
+                size=1853
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuProgressTracker.scala" {
+                sha256="3874c5018c95a60a2e1286d7eac5da502741c3e24f36beed81cf1147dec3a82d"
+                size=2564
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuSolverSettings.scala" {
+                sha256=adeea284ca877b20385661e4a65130bf1f17ccc110945c9bec4ee60a404b2bff
+                size=640
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailType.scala" {
+                sha256="4dce0957beb1fedd63099b21f4dacd78c93b3af207e98e3cc24450857f4e0151"
+                size=221
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/TopLevelDefinitions.scala" {
+                sha256=e72cdcd12ef34727cb195c05b45701d360fc7773b52c4baf30ed70de9924e0cc
+                size=3033
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/ReductionRules.scala" {
+                sha256="179d0a19d769b9be2ac861ed65a63b91ac3f18fb0365d0fbf407ed0a4b4af3f2"
+                size=1640
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuIO.scala" {
+                sha256=ee581935ed16cafe458ada3a9760eda2c1c28248e15db22124f2c5e990e45223
+                size=3059
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/CellMappings.scala" {
+                sha256="5a2d50e008f1a3f9f4f6dc909c4044ce5f4265e7a63cab37f93bc6c663fc00a1"
+                size=776
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuProblemSender.scala" {
+                sha256="7a873f16b1a5d6a2a15588c38ebb1c30fa68d1bd1226e7b4fba3d8df0ed54352"
+                size=3396
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuSolver.scala" {
+                sha256="6c07a3826bce07e13e2d439c26214bdfee1d8a76f2b20783ddfbfc483f5be6f5"
+                size=8961
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailProcessor.scala" {
+                sha256=a6dfb669755461bfe35747829e79652aa116c15c3dd592a9d43e068c6337c617
+                size=4449
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/CellMappingSuite.scala" {
+                sha256="029c37eb11e61e4ea3501236626ea78f9120ee0efae5e491b73702f73a65aa11"
+                size=1828
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailProcessorSuite.scala" {
+                sha256="2a023b467a3760eb418d98770ee156d0cf7f64f0e1dbcafbf5218f06d6078788"
+                size=3503
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/SudokuTestHelpers.scala" {
+                sha256="3bb4d12a3b796a3fece319d1bb858ed1f804439d6ee9fa6cdf2647139a6b3661"
+                size=617
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/ReductionRuleSuite.scala" {
+                sha256=dc4e5abf0744bac0c812608675dc800c3b80df619bf6af51072058aa54061af1
+                size=5972
+            }
+        }
+    ]
+    "exercise_007_givens"=[
+        {
+            ".scalafmt.conf" {
+                sha256="63c628b3cce4c2df48fc471274bfe50163ddd7e447c510107bc88ad1a2fcb3c3"
+                size=1012
+            }
+        },
+        {
+            "build.sbt" {
+                sha256="516e72725ea19db2833ef03ab391927e38ecab1e1a34d6df121d115053d107a3"
+                size=427
+            }
+        },
+        {
+            "README.md" {
+                sha256="487a7ad4bddb8313c48ba7c97aeddc35f56abc9edfd0b4cdd2e0e6a8ea36dd7f"
+                size=2538
+            }
+        },
+        {
+            "IDE-Setup.md" {
+                sha256="07352702f9b238513e0fa486c3cd987253de815012930bf1fa3c31e3f8b3202e"
+                size=1326
+            }
+        },
+        {
+            "images/Markdown-viewer-IntelliJ.png" {
+                sha256=f791aec7d6be3512b297989419ce34d12ff68e1cbbfb01d06a13621c2bf2e0ac
+                size=163492
+            }
+        },
+        {
+            "project/plugins.sbt" {
+                sha256=d9f63f018dce5afbeb95fd140e71cb939e72a39ba6aed3ae167fec320b579309
+                size=229
+            }
+        },
+        {
+            "project/Build.scala" {
+                sha256=b1f65fed9fcdf19e1454e6804d89e01b0a8a366bf878ebaacd8fa7d8a6fc261c
+                size=1154
+            }
+        },
+        {
+            "project/build.properties" {
+                sha256=af0e7e42f032e76c037ed4b5b6c8e44d29d4c1ec7a2637d5cb3eb172f3d3d2ab
+                size=18
+            }
+        },
+        {
+            "sudokus/001.sudoku" {
+                sha256="0c46c79740236f98cf834b1636b11b7d1160dc147afa84fffbd658325e591bb0"
+                size=90
+            }
+        },
+        {
+            "src/main/resources/sudokusolver.conf" {
+                sha256="814fce1a8c9d43def3dc55736e0e5c62bdc70256642fd0a933c8c4d2891c08a2"
+                size=105
+            }
+        },
+        {
+            "src/main/resources/application.conf" {
+                sha256=eff82cfabbaa1b7035eeb5de3cf6c8859ad030a5efa37eede3084e7bf07da99d
+                size=395
+            }
+        },
+        {
+            "src/main/resources/logback.xml" {
+                sha256="37bdb6d9fe106b318533539381420d268378f92f4cea40166781cf78a40b1b6d"
+                size=784
+            }
+        },
+        {
+            "src/test/resources/logback-test.xml" {
+                sha256="700561fccbcfd7ecbee1a18c8e6a22619b8ba1c8e97769c773ad6872e4851f70"
+                size=576
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/SudokuSolverMain.scala" {
+                sha256="70fc5bff3b8ec9e4e4cf0cf593adaaa770f866dc45ed27f34df1135a43999938"
+                size=1853
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuProgressTracker.scala" {
+                sha256="3874c5018c95a60a2e1286d7eac5da502741c3e24f36beed81cf1147dec3a82d"
+                size=2564
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuSolverSettings.scala" {
+                sha256=adeea284ca877b20385661e4a65130bf1f17ccc110945c9bec4ee60a404b2bff
+                size=640
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailType.scala" {
+                sha256="4dce0957beb1fedd63099b21f4dacd78c93b3af207e98e3cc24450857f4e0151"
+                size=221
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/TopLevelDefinitions.scala" {
+                sha256=e72cdcd12ef34727cb195c05b45701d360fc7773b52c4baf30ed70de9924e0cc
+                size=3033
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/ReductionRules.scala" {
+                sha256="179d0a19d769b9be2ac861ed65a63b91ac3f18fb0365d0fbf407ed0a4b4af3f2"
+                size=1640
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuIO.scala" {
+                sha256=ee581935ed16cafe458ada3a9760eda2c1c28248e15db22124f2c5e990e45223
+                size=3059
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/CellMappings.scala" {
+                sha256="5a2d50e008f1a3f9f4f6dc909c4044ce5f4265e7a63cab37f93bc6c663fc00a1"
+                size=776
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuProblemSender.scala" {
+                sha256="7a873f16b1a5d6a2a15588c38ebb1c30fa68d1bd1226e7b4fba3d8df0ed54352"
+                size=3396
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuSolver.scala" {
+                sha256="6c07a3826bce07e13e2d439c26214bdfee1d8a76f2b20783ddfbfc483f5be6f5"
+                size=8961
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailProcessor.scala" {
+                sha256="29eb3e9fa3c17c414f58006447ef2f7f5bd236ff1cbb345feca065eb7bb3b736"
+                size=4307
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/CellMappingSuite.scala" {
+                sha256="029c37eb11e61e4ea3501236626ea78f9120ee0efae5e491b73702f73a65aa11"
+                size=1828
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailProcessorSuite.scala" {
+                sha256="2a023b467a3760eb418d98770ee156d0cf7f64f0e1dbcafbf5218f06d6078788"
+                size=3503
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/SudokuTestHelpers.scala" {
+                sha256="3bb4d12a3b796a3fece319d1bb858ed1f804439d6ee9fa6cdf2647139a6b3661"
+                size=617
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/ReductionRuleSuite.scala" {
+                sha256=dc4e5abf0744bac0c812608675dc800c3b80df619bf6af51072058aa54061af1
+                size=5972
+            }
+        }
+    ]
+    "exercise_008_enum_and_export"=[
+        {
+            ".scalafmt.conf" {
+                sha256="63c628b3cce4c2df48fc471274bfe50163ddd7e447c510107bc88ad1a2fcb3c3"
+                size=1012
+            }
+        },
+        {
+            "build.sbt" {
+                sha256="516e72725ea19db2833ef03ab391927e38ecab1e1a34d6df121d115053d107a3"
+                size=427
+            }
+        },
+        {
+            "README.md" {
+                sha256="9aafd2c24a26569ba40d0b04cd1545af01a9b527598367a797e2592a5c9ae2d6"
+                size=4126
+            }
+        },
+        {
+            "IDE-Setup.md" {
+                sha256="07352702f9b238513e0fa486c3cd987253de815012930bf1fa3c31e3f8b3202e"
+                size=1326
+            }
+        },
+        {
+            "images/Markdown-viewer-IntelliJ.png" {
+                sha256=f791aec7d6be3512b297989419ce34d12ff68e1cbbfb01d06a13621c2bf2e0ac
+                size=163492
+            }
+        },
+        {
+            "project/plugins.sbt" {
+                sha256=d9f63f018dce5afbeb95fd140e71cb939e72a39ba6aed3ae167fec320b579309
+                size=229
+            }
+        },
+        {
+            "project/Build.scala" {
+                sha256=b1f65fed9fcdf19e1454e6804d89e01b0a8a366bf878ebaacd8fa7d8a6fc261c
+                size=1154
+            }
+        },
+        {
+            "project/build.properties" {
+                sha256=af0e7e42f032e76c037ed4b5b6c8e44d29d4c1ec7a2637d5cb3eb172f3d3d2ab
+                size=18
+            }
+        },
+        {
+            "sudokus/001.sudoku" {
+                sha256="0c46c79740236f98cf834b1636b11b7d1160dc147afa84fffbd658325e591bb0"
+                size=90
+            }
+        },
+        {
+            "src/main/resources/sudokusolver.conf" {
+                sha256="814fce1a8c9d43def3dc55736e0e5c62bdc70256642fd0a933c8c4d2891c08a2"
+                size=105
+            }
+        },
+        {
+            "src/main/resources/application.conf" {
+                sha256=eff82cfabbaa1b7035eeb5de3cf6c8859ad030a5efa37eede3084e7bf07da99d
+                size=395
+            }
+        },
+        {
+            "src/main/resources/logback.xml" {
+                sha256="37bdb6d9fe106b318533539381420d268378f92f4cea40166781cf78a40b1b6d"
+                size=784
+            }
+        },
+        {
+            "src/test/resources/logback-test.xml" {
+                sha256="700561fccbcfd7ecbee1a18c8e6a22619b8ba1c8e97769c773ad6872e4851f70"
+                size=576
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/SudokuSolverMain.scala" {
+                sha256="70fc5bff3b8ec9e4e4cf0cf593adaaa770f866dc45ed27f34df1135a43999938"
+                size=1853
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuProgressTracker.scala" {
+                sha256="12355c08cea57267ac3555692cf66eb44313678870bca63e5c7265157e648d14"
+                size=2511
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuSolverSettings.scala" {
+                sha256=adeea284ca877b20385661e4a65130bf1f17ccc110945c9bec4ee60a404b2bff
+                size=640
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailType.scala" {
+                sha256="4dce0957beb1fedd63099b21f4dacd78c93b3af207e98e3cc24450857f4e0151"
+                size=221
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/TopLevelDefinitions.scala" {
+                sha256=e72cdcd12ef34727cb195c05b45701d360fc7773b52c4baf30ed70de9924e0cc
+                size=3033
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/ReductionRules.scala" {
+                sha256="179d0a19d769b9be2ac861ed65a63b91ac3f18fb0365d0fbf407ed0a4b4af3f2"
+                size=1640
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuIO.scala" {
+                sha256=ee581935ed16cafe458ada3a9760eda2c1c28248e15db22124f2c5e990e45223
+                size=3059
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/CellMappings.scala" {
+                sha256="5a2d50e008f1a3f9f4f6dc909c4044ce5f4265e7a63cab37f93bc6c663fc00a1"
+                size=776
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuProblemSender.scala" {
+                sha256="54ec1be8906a4cb3bcfbb19500457c48077356e482a8a39c559c4c7dd1244506"
+                size=3355
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuSolver.scala" {
+                sha256="00af57379f7de90a550d4a2a000c90363fbe744c158176f9610f36c9f6d781fa"
+                size=8854
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailProcessor.scala" {
+                sha256=bbad6775b0599c01e1be3d6a8c36edf29e39a0e59cb530a12571ce36a83c2291
+                size=4156
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/CellMappingSuite.scala" {
+                sha256="029c37eb11e61e4ea3501236626ea78f9120ee0efae5e491b73702f73a65aa11"
+                size=1828
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailProcessorSuite.scala" {
+                sha256="2a023b467a3760eb418d98770ee156d0cf7f64f0e1dbcafbf5218f06d6078788"
+                size=3503
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/SudokuTestHelpers.scala" {
+                sha256="3bb4d12a3b796a3fece319d1bb858ed1f804439d6ee9fa6cdf2647139a6b3661"
+                size=617
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/ReductionRuleSuite.scala" {
+                sha256=dc4e5abf0744bac0c812608675dc800c3b80df619bf6af51072058aa54061af1
+                size=5972
+            }
+        }
+    ]
+    "exercise_009_union_types"=[
+        {
+            ".scalafmt.conf" {
+                sha256="63c628b3cce4c2df48fc471274bfe50163ddd7e447c510107bc88ad1a2fcb3c3"
+                size=1012
+            }
+        },
+        {
+            "build.sbt" {
+                sha256="516e72725ea19db2833ef03ab391927e38ecab1e1a34d6df121d115053d107a3"
+                size=427
+            }
+        },
+        {
+            "README.md" {
+                sha256=bd681e59737490650b9d5847f87290cefafcae715521d3a6cab30c92b66eee7d
+                size=4175
+            }
+        },
+        {
+            "IDE-Setup.md" {
+                sha256="07352702f9b238513e0fa486c3cd987253de815012930bf1fa3c31e3f8b3202e"
+                size=1326
+            }
+        },
+        {
+            "images/Markdown-viewer-IntelliJ.png" {
+                sha256=f791aec7d6be3512b297989419ce34d12ff68e1cbbfb01d06a13621c2bf2e0ac
+                size=163492
+            }
+        },
+        {
+            "project/plugins.sbt" {
+                sha256=d9f63f018dce5afbeb95fd140e71cb939e72a39ba6aed3ae167fec320b579309
+                size=229
+            }
+        },
+        {
+            "project/Build.scala" {
+                sha256=b1f65fed9fcdf19e1454e6804d89e01b0a8a366bf878ebaacd8fa7d8a6fc261c
+                size=1154
+            }
+        },
+        {
+            "project/build.properties" {
+                sha256=af0e7e42f032e76c037ed4b5b6c8e44d29d4c1ec7a2637d5cb3eb172f3d3d2ab
+                size=18
+            }
+        },
+        {
+            "sudokus/001.sudoku" {
+                sha256="0c46c79740236f98cf834b1636b11b7d1160dc147afa84fffbd658325e591bb0"
+                size=90
+            }
+        },
+        {
+            "src/main/resources/sudokusolver.conf" {
+                sha256="814fce1a8c9d43def3dc55736e0e5c62bdc70256642fd0a933c8c4d2891c08a2"
+                size=105
+            }
+        },
+        {
+            "src/main/resources/application.conf" {
+                sha256=eff82cfabbaa1b7035eeb5de3cf6c8859ad030a5efa37eede3084e7bf07da99d
+                size=395
+            }
+        },
+        {
+            "src/main/resources/logback.xml" {
+                sha256="37bdb6d9fe106b318533539381420d268378f92f4cea40166781cf78a40b1b6d"
+                size=784
+            }
+        },
+        {
+            "src/test/resources/logback-test.xml" {
+                sha256="700561fccbcfd7ecbee1a18c8e6a22619b8ba1c8e97769c773ad6872e4851f70"
+                size=576
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/SudokuSolverMain.scala" {
+                sha256="70fc5bff3b8ec9e4e4cf0cf593adaaa770f866dc45ed27f34df1135a43999938"
+                size=1853
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuProgressTracker.scala" {
+                sha256="12355c08cea57267ac3555692cf66eb44313678870bca63e5c7265157e648d14"
+                size=2511
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuSolverSettings.scala" {
+                sha256=adeea284ca877b20385661e4a65130bf1f17ccc110945c9bec4ee60a404b2bff
+                size=640
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailType.scala" {
+                sha256="4dce0957beb1fedd63099b21f4dacd78c93b3af207e98e3cc24450857f4e0151"
+                size=221
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/TopLevelDefinitions.scala" {
+                sha256=e72cdcd12ef34727cb195c05b45701d360fc7773b52c4baf30ed70de9924e0cc
+                size=3033
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/ReductionRules.scala" {
+                sha256="179d0a19d769b9be2ac861ed65a63b91ac3f18fb0365d0fbf407ed0a4b4af3f2"
+                size=1640
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuIO.scala" {
+                sha256=ee581935ed16cafe458ada3a9760eda2c1c28248e15db22124f2c5e990e45223
+                size=3059
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/CellMappings.scala" {
+                sha256="5a2d50e008f1a3f9f4f6dc909c4044ce5f4265e7a63cab37f93bc6c663fc00a1"
+                size=776
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuProblemSender.scala" {
+                sha256="85923d3af24856356cae99d119caebf6c31dd02033c5c6ea81c3a8837e6a1a1e"
+                size=3337
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuSolver.scala" {
+                sha256=db4741fb811e1e8a8cbb0fa7fa4acdfb8f1d1dc0490495facba18b107534b6f2
+                size=7753
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailProcessor.scala" {
+                sha256=bbad6775b0599c01e1be3d6a8c36edf29e39a0e59cb530a12571ce36a83c2291
+                size=4156
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/CellMappingSuite.scala" {
+                sha256="029c37eb11e61e4ea3501236626ea78f9120ee0efae5e491b73702f73a65aa11"
+                size=1828
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailProcessorSuite.scala" {
+                sha256="2a023b467a3760eb418d98770ee156d0cf7f64f0e1dbcafbf5218f06d6078788"
+                size=3503
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/SudokuTestHelpers.scala" {
+                sha256="3bb4d12a3b796a3fece319d1bb858ed1f804439d6ee9fa6cdf2647139a6b3661"
+                size=617
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/ReductionRuleSuite.scala" {
+                sha256=dc4e5abf0744bac0c812608675dc800c3b80df619bf6af51072058aa54061af1
+                size=5972
+            }
+        }
+    ]
+    "exercise_010_exploring_opaque_type_aliases"=[
+        {
+            ".scalafmt.conf" {
+                sha256="63c628b3cce4c2df48fc471274bfe50163ddd7e447c510107bc88ad1a2fcb3c3"
+                size=1012
+            }
+        },
+        {
+            "build.sbt" {
+                sha256="516e72725ea19db2833ef03ab391927e38ecab1e1a34d6df121d115053d107a3"
+                size=427
+            }
+        },
+        {
+            "README.md" {
+                sha256="0dd2663c7c29c4fdf8b0016851e82dea3c4d79134a7e48312cc079b65aa04e97"
+                size=2228
+            }
+        },
+        {
+            "IDE-Setup.md" {
+                sha256="07352702f9b238513e0fa486c3cd987253de815012930bf1fa3c31e3f8b3202e"
+                size=1326
+            }
+        },
+        {
+            "images/Markdown-viewer-IntelliJ.png" {
+                sha256=f791aec7d6be3512b297989419ce34d12ff68e1cbbfb01d06a13621c2bf2e0ac
+                size=163492
+            }
+        },
+        {
+            "project/plugins.sbt" {
+                sha256=d9f63f018dce5afbeb95fd140e71cb939e72a39ba6aed3ae167fec320b579309
+                size=229
+            }
+        },
+        {
+            "project/Build.scala" {
+                sha256=b1f65fed9fcdf19e1454e6804d89e01b0a8a366bf878ebaacd8fa7d8a6fc261c
+                size=1154
+            }
+        },
+        {
+            "project/build.properties" {
+                sha256=af0e7e42f032e76c037ed4b5b6c8e44d29d4c1ec7a2637d5cb3eb172f3d3d2ab
+                size=18
+            }
+        },
+        {
+            "sudokus/001.sudoku" {
+                sha256="0c46c79740236f98cf834b1636b11b7d1160dc147afa84fffbd658325e591bb0"
+                size=90
+            }
+        },
+        {
+            "src/main/resources/sudokusolver.conf" {
+                sha256="814fce1a8c9d43def3dc55736e0e5c62bdc70256642fd0a933c8c4d2891c08a2"
+                size=105
+            }
+        },
+        {
+            "src/main/resources/application.conf" {
+                sha256=eff82cfabbaa1b7035eeb5de3cf6c8859ad030a5efa37eede3084e7bf07da99d
+                size=395
+            }
+        },
+        {
+            "src/main/resources/logback.xml" {
+                sha256="37bdb6d9fe106b318533539381420d268378f92f4cea40166781cf78a40b1b6d"
+                size=784
+            }
+        },
+        {
+            "src/test/resources/logback-test.xml" {
+                sha256="700561fccbcfd7ecbee1a18c8e6a22619b8ba1c8e97769c773ad6872e4851f70"
+                size=576
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/SudokuSolverMain.scala" {
+                sha256="70fc5bff3b8ec9e4e4cf0cf593adaaa770f866dc45ed27f34df1135a43999938"
+                size=1853
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuProgressTracker.scala" {
+                sha256="12355c08cea57267ac3555692cf66eb44313678870bca63e5c7265157e648d14"
+                size=2511
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuSolverSettings.scala" {
+                sha256=adeea284ca877b20385661e4a65130bf1f17ccc110945c9bec4ee60a404b2bff
+                size=640
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailType.scala" {
+                sha256="4dce0957beb1fedd63099b21f4dacd78c93b3af207e98e3cc24450857f4e0151"
+                size=221
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/TopLevelDefinitions.scala" {
+                sha256=e72cdcd12ef34727cb195c05b45701d360fc7773b52c4baf30ed70de9924e0cc
+                size=3033
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/ReductionRules.scala" {
+                sha256="179d0a19d769b9be2ac861ed65a63b91ac3f18fb0365d0fbf407ed0a4b4af3f2"
+                size=1640
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuIO.scala" {
+                sha256=ee581935ed16cafe458ada3a9760eda2c1c28248e15db22124f2c5e990e45223
+                size=3059
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/CellMappings.scala" {
+                sha256="5a2d50e008f1a3f9f4f6dc909c4044ce5f4265e7a63cab37f93bc6c663fc00a1"
+                size=776
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuProblemSender.scala" {
+                sha256="85923d3af24856356cae99d119caebf6c31dd02033c5c6ea81c3a8837e6a1a1e"
+                size=3337
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuSolver.scala" {
+                sha256=db4741fb811e1e8a8cbb0fa7fa4acdfb8f1d1dc0490495facba18b107534b6f2
+                size=7753
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailProcessor.scala" {
+                sha256=bbad6775b0599c01e1be3d6a8c36edf29e39a0e59cb530a12571ce36a83c2291
+                size=4156
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/CellMappingSuite.scala" {
+                sha256="029c37eb11e61e4ea3501236626ea78f9120ee0efae5e491b73702f73a65aa11"
+                size=1828
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailProcessorSuite.scala" {
+                sha256="2a023b467a3760eb418d98770ee156d0cf7f64f0e1dbcafbf5218f06d6078788"
+                size=3503
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/SudokuTestHelpers.scala" {
+                sha256="3bb4d12a3b796a3fece319d1bb858ed1f804439d6ee9fa6cdf2647139a6b3661"
+                size=617
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/ReductionRuleSuite.scala" {
+                sha256=dc4e5abf0744bac0c812608675dc800c3b80df619bf6af51072058aa54061af1
+                size=5972
+            }
+        }
+    ]
+    "exercise_011_optional_opaque_type_aliases"=[
+        {
+            ".scalafmt.conf" {
+                sha256="63c628b3cce4c2df48fc471274bfe50163ddd7e447c510107bc88ad1a2fcb3c3"
+                size=1012
+            }
+        },
+        {
+            "build.sbt" {
+                sha256="516e72725ea19db2833ef03ab391927e38ecab1e1a34d6df121d115053d107a3"
+                size=427
+            }
+        },
+        {
+            "README.md" {
+                sha256="857246e2063242a6f3d139a21479f720fb50006c56b039b4c178f021dd9619ee"
+                size=6045
+            }
+        },
+        {
+            "IDE-Setup.md" {
+                sha256="07352702f9b238513e0fa486c3cd987253de815012930bf1fa3c31e3f8b3202e"
+                size=1326
+            }
+        },
+        {
+            "images/Markdown-viewer-IntelliJ.png" {
+                sha256=f791aec7d6be3512b297989419ce34d12ff68e1cbbfb01d06a13621c2bf2e0ac
+                size=163492
+            }
+        },
+        {
+            "project/plugins.sbt" {
+                sha256=d9f63f018dce5afbeb95fd140e71cb939e72a39ba6aed3ae167fec320b579309
+                size=229
+            }
+        },
+        {
+            "project/Build.scala" {
+                sha256=b1f65fed9fcdf19e1454e6804d89e01b0a8a366bf878ebaacd8fa7d8a6fc261c
+                size=1154
+            }
+        },
+        {
+            "project/build.properties" {
+                sha256=af0e7e42f032e76c037ed4b5b6c8e44d29d4c1ec7a2637d5cb3eb172f3d3d2ab
+                size=18
+            }
+        },
+        {
+            "sudokus/001.sudoku" {
+                sha256="0c46c79740236f98cf834b1636b11b7d1160dc147afa84fffbd658325e591bb0"
+                size=90
+            }
+        },
+        {
+            "src/main/resources/sudokusolver.conf" {
+                sha256="814fce1a8c9d43def3dc55736e0e5c62bdc70256642fd0a933c8c4d2891c08a2"
+                size=105
+            }
+        },
+        {
+            "src/main/resources/application.conf" {
+                sha256=eff82cfabbaa1b7035eeb5de3cf6c8859ad030a5efa37eede3084e7bf07da99d
+                size=395
+            }
+        },
+        {
+            "src/main/resources/logback.xml" {
+                sha256="37bdb6d9fe106b318533539381420d268378f92f4cea40166781cf78a40b1b6d"
+                size=784
+            }
+        },
+        {
+            "src/test/resources/logback-test.xml" {
+                sha256="700561fccbcfd7ecbee1a18c8e6a22619b8ba1c8e97769c773ad6872e4851f70"
+                size=576
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/SudokuSolverMain.scala" {
+                sha256="70fc5bff3b8ec9e4e4cf0cf593adaaa770f866dc45ed27f34df1135a43999938"
+                size=1853
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuProgressTracker.scala" {
+                sha256="12355c08cea57267ac3555692cf66eb44313678870bca63e5c7265157e648d14"
+                size=2511
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuSolverSettings.scala" {
+                sha256=adeea284ca877b20385661e4a65130bf1f17ccc110945c9bec4ee60a404b2bff
+                size=640
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailType.scala" {
+                sha256="4dce0957beb1fedd63099b21f4dacd78c93b3af207e98e3cc24450857f4e0151"
+                size=221
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/ReductionSet.scala" {
+                sha256=acbd20e05dee9d67140553a0ca0532ba11829783d2f9719ee43c1d62ad109f9f
+                size=5229
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/TopLevelDefinitions.scala" {
+                sha256="0dfa372745cf39a47a8f97806e11640362cafb8829e5136d399aecf3f2a25479"
+                size=1033
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuIO.scala" {
+                sha256="0d16eb6966d74d3c376a615e35bb29a053beab41763add40253601ddb43eddbf"
+                size=2490
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/CellMappings.scala" {
+                sha256="5a2d50e008f1a3f9f4f6dc909c4044ce5f4265e7a63cab37f93bc6c663fc00a1"
+                size=776
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuProblemSender.scala" {
+                sha256="85923d3af24856356cae99d119caebf6c31dd02033c5c6ea81c3a8837e6a1a1e"
+                size=3337
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuSolver.scala" {
+                sha256=db4741fb811e1e8a8cbb0fa7fa4acdfb8f1d1dc0490495facba18b107534b6f2
+                size=7753
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailProcessor.scala" {
+                sha256="8da6e857a994621a552170b1211d1ac0d572acc06a837734283e46baceeb1552"
+                size=3328
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/CellMappingSuite.scala" {
+                sha256="029c37eb11e61e4ea3501236626ea78f9120ee0efae5e491b73702f73a65aa11"
+                size=1828
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailProcessorSuite.scala" {
+                sha256="2a023b467a3760eb418d98770ee156d0cf7f64f0e1dbcafbf5218f06d6078788"
+                size=3503
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/SudokuTestHelpers.scala" {
+                sha256="3804195f55f1c56ea128415236fe5a3cbe004b400767a21bce6c2e4d9c8a0902"
+                size=631
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/ReductionRuleSuite.scala" {
+                sha256=dc4e5abf0744bac0c812608675dc800c3b80df619bf6af51072058aa54061af1
+                size=5972
+            }
+        }
+    ]
+    "exercise_012_multiversal_equality"=[
+        {
+            ".scalafmt.conf" {
+                sha256="63c628b3cce4c2df48fc471274bfe50163ddd7e447c510107bc88ad1a2fcb3c3"
+                size=1012
+            }
+        },
+        {
+            "build.sbt" {
+                sha256="516e72725ea19db2833ef03ab391927e38ecab1e1a34d6df121d115053d107a3"
+                size=427
+            }
+        },
+        {
+            "README.md" {
+                sha256="261793c470a6f49ed51035e9ed8e949d75240773d9c117e08e7f2a7b08412ec4"
+                size=3100
+            }
+        },
+        {
+            "IDE-Setup.md" {
+                sha256="07352702f9b238513e0fa486c3cd987253de815012930bf1fa3c31e3f8b3202e"
+                size=1326
+            }
+        },
+        {
+            "images/Markdown-viewer-IntelliJ.png" {
+                sha256=f791aec7d6be3512b297989419ce34d12ff68e1cbbfb01d06a13621c2bf2e0ac
+                size=163492
+            }
+        },
+        {
+            "project/plugins.sbt" {
+                sha256=d9f63f018dce5afbeb95fd140e71cb939e72a39ba6aed3ae167fec320b579309
+                size=229
+            }
+        },
+        {
+            "project/Build.scala" {
+                sha256="18de42415a28463f1c7bed7b1f2138e13deb176bed2aac4e1592210558f21b89"
+                size=1186
+            }
+        },
+        {
+            "project/build.properties" {
+                sha256=af0e7e42f032e76c037ed4b5b6c8e44d29d4c1ec7a2637d5cb3eb172f3d3d2ab
+                size=18
+            }
+        },
+        {
+            "sudokus/001.sudoku" {
+                sha256="0c46c79740236f98cf834b1636b11b7d1160dc147afa84fffbd658325e591bb0"
+                size=90
+            }
+        },
+        {
+            "src/main/resources/sudokusolver.conf" {
+                sha256="814fce1a8c9d43def3dc55736e0e5c62bdc70256642fd0a933c8c4d2891c08a2"
+                size=105
+            }
+        },
+        {
+            "src/main/resources/application.conf" {
+                sha256=eff82cfabbaa1b7035eeb5de3cf6c8859ad030a5efa37eede3084e7bf07da99d
+                size=395
+            }
+        },
+        {
+            "src/main/resources/logback.xml" {
+                sha256="37bdb6d9fe106b318533539381420d268378f92f4cea40166781cf78a40b1b6d"
+                size=784
+            }
+        },
+        {
+            "src/test/resources/logback-test.xml" {
+                sha256="700561fccbcfd7ecbee1a18c8e6a22619b8ba1c8e97769c773ad6872e4851f70"
+                size=576
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/SudokuSolverMain.scala" {
+                sha256="70fc5bff3b8ec9e4e4cf0cf593adaaa770f866dc45ed27f34df1135a43999938"
+                size=1853
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuProgressTracker.scala" {
+                sha256="12355c08cea57267ac3555692cf66eb44313678870bca63e5c7265157e648d14"
+                size=2511
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuSolverSettings.scala" {
+                sha256=adeea284ca877b20385661e4a65130bf1f17ccc110945c9bec4ee60a404b2bff
+                size=640
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailType.scala" {
+                sha256="4dce0957beb1fedd63099b21f4dacd78c93b3af207e98e3cc24450857f4e0151"
+                size=221
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/ReductionSet.scala" {
+                sha256=d13acf3b4d27f96d40e5ff2f3f70bd2e4a8c8f5bbfb17c5fe5e53b6096ce8a34
+                size=5292
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/TopLevelDefinitions.scala" {
+                sha256="0dfa372745cf39a47a8f97806e11640362cafb8829e5136d399aecf3f2a25479"
+                size=1033
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuIO.scala" {
+                sha256="0d16eb6966d74d3c376a615e35bb29a053beab41763add40253601ddb43eddbf"
+                size=2490
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/CellMappings.scala" {
+                sha256="5a2d50e008f1a3f9f4f6dc909c4044ce5f4265e7a63cab37f93bc6c663fc00a1"
+                size=776
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuProblemSender.scala" {
+                sha256="12301f36879646828679d6a8f6732515b8f795140df67a793d31823f8b89fe67"
+                size=3404
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuSolver.scala" {
+                sha256="2aed7e0493c516442e253997fbe9bee7753409b722277de60c48d6b5f5ddd1fd"
+                size=7831
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailProcessor.scala" {
+                sha256="3f76d4e1d0d2df69acfb688d0d747137c52e930d47a319214860b58e1f957237"
+                size=3383
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/CellMappingSuite.scala" {
+                sha256="029c37eb11e61e4ea3501236626ea78f9120ee0efae5e491b73702f73a65aa11"
+                size=1828
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailProcessorSuite.scala" {
+                sha256="2a023b467a3760eb418d98770ee156d0cf7f64f0e1dbcafbf5218f06d6078788"
+                size=3503
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/SudokuTestHelpers.scala" {
+                sha256="3804195f55f1c56ea128415236fe5a3cbe004b400767a21bce6c2e4d9c8a0902"
+                size=631
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/ReductionRuleSuite.scala" {
+                sha256=dc4e5abf0744bac0c812608675dc800c3b80df619bf6af51072058aa54061af1
+                size=5972
+            }
+        }
+    ]
+    "exercise_020_opaque_type_aliases_alt"=[
+        {
+            ".scalafmt.conf" {
+                sha256="63c628b3cce4c2df48fc471274bfe50163ddd7e447c510107bc88ad1a2fcb3c3"
+                size=1012
+            }
+        },
+        {
+            "build.sbt" {
+                sha256="516e72725ea19db2833ef03ab391927e38ecab1e1a34d6df121d115053d107a3"
+                size=427
+            }
+        },
+        {
+            "README.md" {
+                sha256=e73db23edca22ae88b820ea6dc5a2343af82ca497e1bb8030089324d42ed1d1b
+                size=4392
+            }
+        },
+        {
+            "IDE-Setup.md" {
+                sha256="07352702f9b238513e0fa486c3cd987253de815012930bf1fa3c31e3f8b3202e"
+                size=1326
+            }
+        },
+        {
+            "images/Markdown-viewer-IntelliJ.png" {
+                sha256=f791aec7d6be3512b297989419ce34d12ff68e1cbbfb01d06a13621c2bf2e0ac
+                size=163492
+            }
+        },
+        {
+            "project/plugins.sbt" {
+                sha256=d9f63f018dce5afbeb95fd140e71cb939e72a39ba6aed3ae167fec320b579309
+                size=229
+            }
+        },
+        {
+            "project/Build.scala" {
+                sha256=b1f65fed9fcdf19e1454e6804d89e01b0a8a366bf878ebaacd8fa7d8a6fc261c
+                size=1154
+            }
+        },
+        {
+            "project/build.properties" {
+                sha256=af0e7e42f032e76c037ed4b5b6c8e44d29d4c1ec7a2637d5cb3eb172f3d3d2ab
+                size=18
+            }
+        },
+        {
+            "sudokus/001.sudoku" {
+                sha256="0c46c79740236f98cf834b1636b11b7d1160dc147afa84fffbd658325e591bb0"
+                size=90
+            }
+        },
+        {
+            "src/main/resources/sudokusolver.conf" {
+                sha256="814fce1a8c9d43def3dc55736e0e5c62bdc70256642fd0a933c8c4d2891c08a2"
+                size=105
+            }
+        },
+        {
+            "src/main/resources/application.conf" {
+                sha256=eff82cfabbaa1b7035eeb5de3cf6c8859ad030a5efa37eede3084e7bf07da99d
+                size=395
+            }
+        },
+        {
+            "src/main/resources/logback.xml" {
+                sha256="37bdb6d9fe106b318533539381420d268378f92f4cea40166781cf78a40b1b6d"
+                size=784
+            }
+        },
+        {
+            "src/test/resources/logback-test.xml" {
+                sha256="700561fccbcfd7ecbee1a18c8e6a22619b8ba1c8e97769c773ad6872e4851f70"
+                size=576
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/SudokuSolverMain.scala" {
+                sha256="70fc5bff3b8ec9e4e4cf0cf593adaaa770f866dc45ed27f34df1135a43999938"
+                size=1853
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuProgressTracker.scala" {
+                sha256="12355c08cea57267ac3555692cf66eb44313678870bca63e5c7265157e648d14"
+                size=2511
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuSolverSettings.scala" {
+                sha256=adeea284ca877b20385661e4a65130bf1f17ccc110945c9bec4ee60a404b2bff
+                size=640
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailType.scala" {
+                sha256="4dce0957beb1fedd63099b21f4dacd78c93b3af207e98e3cc24450857f4e0151"
+                size=221
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/TopLevelDefinitions.scala" {
+                sha256="45dc4ad179a5b24cd517f3e7d0a7f467bbea61df2d7717de89c2b8b2e5b4a0e3"
+                size=3761
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/ReductionRules.scala" {
+                sha256="179d0a19d769b9be2ac861ed65a63b91ac3f18fb0365d0fbf407ed0a4b4af3f2"
+                size=1640
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuIO.scala" {
+                sha256=ee581935ed16cafe458ada3a9760eda2c1c28248e15db22124f2c5e990e45223
+                size=3059
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/CellMappings.scala" {
+                sha256="5a2d50e008f1a3f9f4f6dc909c4044ce5f4265e7a63cab37f93bc6c663fc00a1"
+                size=776
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuProblemSender.scala" {
+                sha256="85923d3af24856356cae99d119caebf6c31dd02033c5c6ea81c3a8837e6a1a1e"
+                size=3337
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuSolver.scala" {
+                sha256="12aedf125eb897171af7e3db6635319e7cf89ab0faefae75d932019104811c2c"
+                size=7783
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailProcessor.scala" {
+                sha256=bbad6775b0599c01e1be3d6a8c36edf29e39a0e59cb530a12571ce36a83c2291
+                size=4156
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/CellMappingSuite.scala" {
+                sha256="029c37eb11e61e4ea3501236626ea78f9120ee0efae5e491b73702f73a65aa11"
+                size=1828
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailProcessorSuite.scala" {
+                sha256=c165e2bcbb6ff1ee02516964f171af5ffc304c2e26c4178129d46f03c70cc375
+                size=3623
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/SudokuTestHelpers.scala" {
+                sha256=dd76239822c95bf4c336fba7ecd3b11a5a8d9a078d2c4d1f4a782298b2a56d0c
+                size=657
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/ReductionRuleSuite.scala" {
+                sha256=dc4e5abf0744bac0c812608675dc800c3b80df619bf6af51072058aa54061af1
+                size=5972
+            }
+        }
+    ]
+    "exercise_021_multiversal_equality"=[
+        {
+            ".scalafmt.conf" {
+                sha256="63c628b3cce4c2df48fc471274bfe50163ddd7e447c510107bc88ad1a2fcb3c3"
+                size=1012
+            }
+        },
+        {
+            "build.sbt" {
+                sha256="516e72725ea19db2833ef03ab391927e38ecab1e1a34d6df121d115053d107a3"
+                size=427
+            }
+        },
+        {
+            "README.md" {
+                sha256="7912f4180dfb0126a147df6e9b0910e097a74ea84d49ad2248b8246a00bf8f8a"
+                size=3098
+            }
+        },
+        {
+            "IDE-Setup.md" {
+                sha256="07352702f9b238513e0fa486c3cd987253de815012930bf1fa3c31e3f8b3202e"
+                size=1326
+            }
+        },
+        {
+            "images/Markdown-viewer-IntelliJ.png" {
+                sha256=f791aec7d6be3512b297989419ce34d12ff68e1cbbfb01d06a13621c2bf2e0ac
+                size=163492
+            }
+        },
+        {
+            "project/plugins.sbt" {
+                sha256=d9f63f018dce5afbeb95fd140e71cb939e72a39ba6aed3ae167fec320b579309
+                size=229
+            }
+        },
+        {
+            "project/Build.scala" {
+                sha256="18de42415a28463f1c7bed7b1f2138e13deb176bed2aac4e1592210558f21b89"
+                size=1186
+            }
+        },
+        {
+            "project/build.properties" {
+                sha256=af0e7e42f032e76c037ed4b5b6c8e44d29d4c1ec7a2637d5cb3eb172f3d3d2ab
+                size=18
+            }
+        },
+        {
+            "sudokus/001.sudoku" {
+                sha256="0c46c79740236f98cf834b1636b11b7d1160dc147afa84fffbd658325e591bb0"
+                size=90
+            }
+        },
+        {
+            "src/main/resources/sudokusolver.conf" {
+                sha256="814fce1a8c9d43def3dc55736e0e5c62bdc70256642fd0a933c8c4d2891c08a2"
+                size=105
+            }
+        },
+        {
+            "src/main/resources/application.conf" {
+                sha256=eff82cfabbaa1b7035eeb5de3cf6c8859ad030a5efa37eede3084e7bf07da99d
+                size=395
+            }
+        },
+        {
+            "src/main/resources/logback.xml" {
+                sha256="37bdb6d9fe106b318533539381420d268378f92f4cea40166781cf78a40b1b6d"
+                size=784
+            }
+        },
+        {
+            "src/test/resources/logback-test.xml" {
+                sha256="700561fccbcfd7ecbee1a18c8e6a22619b8ba1c8e97769c773ad6872e4851f70"
+                size=576
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/SudokuSolverMain.scala" {
+                sha256="70fc5bff3b8ec9e4e4cf0cf593adaaa770f866dc45ed27f34df1135a43999938"
+                size=1853
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuProgressTracker.scala" {
+                sha256="12355c08cea57267ac3555692cf66eb44313678870bca63e5c7265157e648d14"
+                size=2511
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuSolverSettings.scala" {
+                sha256=adeea284ca877b20385661e4a65130bf1f17ccc110945c9bec4ee60a404b2bff
+                size=640
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailType.scala" {
+                sha256="4dce0957beb1fedd63099b21f4dacd78c93b3af207e98e3cc24450857f4e0151"
+                size=221
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/TopLevelDefinitions.scala" {
+                sha256="9875f3fa1b43d53c521d60e6971fcc880da03c41a82c44a7e7506cc3dceddc12"
+                size=3822
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/ReductionRules.scala" {
+                sha256="179d0a19d769b9be2ac861ed65a63b91ac3f18fb0365d0fbf407ed0a4b4af3f2"
+                size=1640
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuIO.scala" {
+                sha256=ee581935ed16cafe458ada3a9760eda2c1c28248e15db22124f2c5e990e45223
+                size=3059
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/CellMappings.scala" {
+                sha256="5a2d50e008f1a3f9f4f6dc909c4044ce5f4265e7a63cab37f93bc6c663fc00a1"
+                size=776
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuProblemSender.scala" {
+                sha256="52a0acacb9784aa8bd88dd027ba2e865458fae30cd06c10f59e88c4cb20eaca7"
+                size=3345
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuSolver.scala" {
+                sha256="48095184ce7b204c4d7811eb5cf904ced73718cf30361068c46a6f561b6dc49c"
+                size=7779
+            }
+        },
+        {
+            "src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailProcessor.scala" {
+                sha256="90cd19edafb78ee768480dc8a447df33c44e48bb2a773a38bb95aeaba802d7af"
+                size=4164
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/CellMappingSuite.scala" {
+                sha256="029c37eb11e61e4ea3501236626ea78f9120ee0efae5e491b73702f73a65aa11"
+                size=1828
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/SudokuDetailProcessorSuite.scala" {
+                sha256=c165e2bcbb6ff1ee02516964f171af5ffc304c2e26c4178129d46f03c70cc375
+                size=3623
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/SudokuTestHelpers.scala" {
+                sha256=dd76239822c95bf4c336fba7ecd3b11a5a8d9a078d2c4d1f4a782298b2a56d0c
+                size=657
+            }
+        },
+        {
+            "src/test/scala/org/lunatechlabs/dotty/sudoku/ReductionRuleSuite.scala" {
+                sha256=dc4e5abf0744bac0c812608675dc800c3b80df619bf6af51072058aa54061af1
+                size=5972
+            }
+        }
+    ]
+}
+

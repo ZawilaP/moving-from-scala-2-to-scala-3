@@ -1,0 +1,46 @@
+{
+    "active-exercise-folder" : ".",
+    "cmt-studentified-dont-touch" : [
+        ".idea",
+        ".bsp",
+        ".bloop",
+        ".vscode",
+        "target",
+        ".cmt",
+        ".git",
+        ".gitignore"
+    ],
+    "code-size-and-checksums" : ".cmt/.cmt-code-size-checksums",
+    "exercises" : [
+        "exercise_000_sudoku_solver_initial_state",
+        "exercise_001_dotty_deprecated_syntax_rewriting",
+        "exercise_002_dotty_new_syntax_and_indentation_based_syntax",
+        "exercise_003_top_level_definitions",
+        "exercise_004_parameter_untupling",
+        "exercise_005_extension_methods",
+        "exercise_006_using_and_summon",
+        "exercise_007_givens",
+        "exercise_008_enum_and_export",
+        "exercise_009_union_types",
+        "exercise_010_exploring_opaque_type_aliases",
+        "exercise_011_optional_opaque_type_aliases",
+        "exercise_012_multiversal_equality",
+        "exercise_020_opaque_type_aliases_alt",
+        "exercise_021_multiversal_equality"
+    ],
+    "generator-info" : {
+        "generator-name" : "cmta:Course Management Tools (Admin)",
+        "generator-version" : "2.0.0"
+    },
+    "read-me-files" : [
+        "README.md"
+    ],
+    "studentified-repo-bookmark-file" : ".cmt/.bookmark",
+    "studentified-repo-solutions-folder" : ".cmt/.cue",
+    "studentified-saved-states-folder" : ".cmt/.cue/.savedStates",
+    "test-code-folders" : [
+        "src/test",
+        ".scalafmt.conf"
+    ],
+    "test-code-size-and-checksums" : ".cmt/.cmt-test-size-checksums"
+}
