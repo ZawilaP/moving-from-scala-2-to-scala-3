@@ -187,8 +187,4 @@ class SudokuSolver private (context: ActorContext[SudokuSolver.Command], buffer:
       processors <- allDetailProcessors
       (_, processor) <- processors
     do processor ! SudokuDetailProcessor.ResetSudokuDetailState
-
-  private def checkHaha(s: String): Unit =
-    val haha = Symbol("Haha")
-    val noHaha = Symbol("NoHaha")
-    if s.`startsWith`(haha.name) then println(haha.name) else println(noHaha.name)
+    

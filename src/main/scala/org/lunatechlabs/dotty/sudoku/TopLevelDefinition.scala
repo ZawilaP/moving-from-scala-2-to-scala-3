@@ -46,7 +46,7 @@ implicit class SudokuFieldOps(val sudokuField: SudokuField) extends AnyVal:
     SudokuField(sudokuField.sudoku.zipWithIndex.map {
       case (_, `row1`) => sudokuField.sudoku(row2)
       case (_, `row2`) => sudokuField.sudoku(row1)
-      case (row, _) => row
+      case (row, _)    => row
     })
 
   def columnSwap(col1: Int, col2: Int): SudokuField =
@@ -59,7 +59,7 @@ implicit class SudokuFieldOps(val sudokuField: SudokuField) extends AnyVal:
     // a cell with value 0 should remain 0 which is why we add an entry to the generated
     // Map to that effect
     val shuffledValuesMap =
-    possibleCellValues.zip(scala.util.Random.shuffle(possibleCellValues)).to(Map) + (0 -> 0)
+      possibleCellValues.zip(scala.util.Random.shuffle(possibleCellValues)).to(Map) + (0 -> 0)
     SudokuField(sudokuField.sudoku.map { row =>
       row.map(cell => Set(shuffledValuesMap(cell.head)))
     })
