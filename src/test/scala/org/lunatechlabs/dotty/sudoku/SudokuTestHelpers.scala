@@ -1,8 +1,7 @@
 package org.lunatechlabs.dotty.sudoku
+import org.lunatechlabs.dotty.sudoku.ReductionRules.{applyReductionRuleOne, applyReductionRuleTwo}
 
 trait SudokuTestHelpers:
-
-  import org.lunatechlabs.dotty.sudoku.ReductionRules.{reductionRuleOne, reductionRuleTwo}
 
   def stringToReductionSet(stringDef: Vector[String]): ReductionSet =
     for {
@@ -14,4 +13,5 @@ trait SudokuTestHelpers:
       (cellString, index) <- stringDef.zipWithIndex if cellString != ""
     } yield (index, cellString.replaceAll(" ", "").map { _.toString.toInt }.toSet)
 
-  def applyReductionRules(reductionSet: ReductionSet): ReductionSet = reductionRuleTwo(reductionRuleOne(reductionSet))
+  def applyReductionRules(reductionSet: ReductionSet): ReductionSet =
+    reductionSet.applyReductionRuleOne.applyReductionRuleTwo

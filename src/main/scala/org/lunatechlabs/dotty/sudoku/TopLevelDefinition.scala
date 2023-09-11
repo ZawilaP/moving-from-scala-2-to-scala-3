@@ -17,7 +17,7 @@ final case class SudokuField(sudoku: Sudoku)
 
 import SudokuDetailProcessor.RowUpdate
 
-implicit class RowUpdatesToSudokuField(val update: Vector[SudokuDetailProcessor.RowUpdate]) extends AnyVal:
+extension (update: Vector[SudokuDetailProcessor.RowUpdate])
   def toSudokuField: SudokuField =
     val rows =
       update
@@ -31,7 +31,7 @@ implicit class RowUpdatesToSudokuField(val update: Vector[SudokuDetailProcessor.
     yield y
     SudokuField(sudoku)
 
-implicit class SudokuFieldOps(val sudokuField: SudokuField) extends AnyVal:
+extension (sudokuField: SudokuField)
   def mirrorOnMainDiagonal: SudokuField = SudokuField(sudokuField.sudoku.transpose)
 
   def rotateCW: SudokuField = SudokuField(sudokuField.sudoku.reverse.transpose)

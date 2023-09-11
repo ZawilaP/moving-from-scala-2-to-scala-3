@@ -1,61 +1,79 @@
-# Parameter untupling
+# Extension Methods
 
 ## Background
 
-The need to write a pattern-matching decomposition when mapping over a sequence 
-of tuples has always annoyed some Scala developers. So many might appreciate this 
-new feature.
+Extension methods can be used to add methods to types after they are defined.
 
-Consider you have a list of pairs
-
-```scala
-val pairs = List(1, 2, 3).zipWithIndex
-// pairs: List[(Int, Int)] = List((1,0), (2,1), (3,2))
-```
-
-Imagine you want to map `pairs` to a list of `Int`s so that each pair of numbers is 
-mapped to their sum. The best way to do this in _Scala 2.x_ was with a pattern 
-matching anonymous function.
+Let's say we need to add a method `square` to type `Int`. We used to achieve it 
+with the help of `implicit class`es in _Scala 2_
 
 ```scala
-pairs map {
-  case (x, y) => x + y
+implicit class RichInt(val i: Int) extends AnyVal {
+  def square = i * i
 }
-// res1: List[Int] = List(1, 3, 5)
 ```
-Scala 3 now allows us to write
+
+Now you can use it as follows
 
 ```scala
-pairs map {
-  (x, y) => x + y
-}
-// val res0: List[Int] = List(1, 3, 5)
+4.square
+// res1: Int = 16
 ```
-or
+
+With Scala 3's `extension methods`, we can rewrite the above as
 
 ```scala
-pairs.map(_ + _)
-// val res1: List[Int] = List(1, 3, 5)
+extension (i: Int)
+  def square: Int = i * i
+
+4.square
+// val res0: Int = 16
 ```
 
-## Steps
+Multiple extension methods on the same type can be defined just as easily. For example:
 
-- We can apply the new way of encoding in several places in the source code.
+```scala
+extension (i: Int)
+  def square: Int = i * i
+  def isEven: Boolean = i % 2 == 0
+```
 
-- Have a look for them in the following files:
-  - `ReductionRules.scala`
-  - `SudokuProblemSender.scala`
-  - `SudokuProgressTracker.scala`
-  - `SudokuSolver.scala`
-  - `TopLevelDefinitions.scala` (we chose to put the content of the package
-                               object in a file with this name.)
+> Note: extension methods can be generic, i.e., at the base level, type parameters, used
+> in the type of the extended object or the individual extension methods are allowed.
+> Also, individual extension methods can have additional type parameters.
 
-- Identify them and replace the pattern-matching syntax with the new syntax
+## Steps - part I
 
-- Run the provided tests by executing the `test` command from the `sbt` prompt
-  and verify that all tests pass
+You should look for extension methods defined with the Scala 2 syntax. How would
+you approach this? As part of the exercise, you will define a few new extension
+methods. In fact, for this exercise, the tests have been modified assuming these
+new extension methods are already present. Let's start with adapting the existing
+extension methods. Hold running the tests until you start tackling the second
+part of this exercise (adding the new extension methods).
 
-- Verify that the application runs correctly
+- Identify all extension methods defined using the _Scala 2 way_.
+
+- Replace them with Scala 3 extension methods.
+
+- Wrap one or more occurrences of such method in an `extension instance`.
+
+- If you find you need to add more than one extension method to a same type,
+  wrap them inside a `collective extension`.
+
+## Steps - part II
+
+- Run the provided tests by executing the `test` command from the `sbt` prompt.
+  You will see that the test code, which has been modified specifically for this
+  exercise, doesn't compile. Figure out what's wrong (or rather,
+  what's missing; remember we're doing an exercise on extension methods).
+  Fix the problem (and don't change the test code).
+
+> Tip: consider creating new extension methods (names as suggested by the tests)
+  at the `org.lunatechlabs.dotty.sudoku` package level.
+
+- Run the tests and make adjustments to your code until they pass.
+
+- Verify that the application runs correctly.
 
 ### Next steps
 
