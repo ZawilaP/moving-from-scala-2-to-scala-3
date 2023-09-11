@@ -16,7 +16,6 @@ object SudokuIO:
       row <- threeRows
       rowSubBlock <- row.map(el => sudokuCellRepresentation(el)).sliding(3, 3)
       rPres = rowSubBlock.mkString
-
     yield rPres
     rowSubBlocks.sliding(3, 3).map(_.mkString("", "|", "")).mkString("|", "|\n|", "|\n")
 
@@ -56,8 +55,7 @@ object SudokuIO:
               throw new IllegalStateException(e.toString)
 
       override def next(): String =
-        if !hasNext then
-          throw new NoSuchElementException("No more lines in file")
+        if !hasNext then throw new NoSuchElementException("No more lines in file")
         val currentLine = cachedLine.get
         cachedLine = None
         currentLine
@@ -71,7 +69,6 @@ object SudokuIO:
         case (cellUpdates, (c, index)) if c != ' ' =>
           (index, Set(c.toString.toInt)) +: cellUpdates
         case (cellUpdates, _) => cellUpdates
-
     yield (row, updates)
 
   def readSudokuFromFile(sudokuInputFile: java.io.File): Vector[(Int, CellUpdates)] =

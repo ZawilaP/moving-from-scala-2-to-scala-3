@@ -78,7 +78,6 @@ class SudokuSolver private (context: ActorContext[SudokuSolver.Command], buffer:
         context.log.error("Received an unexpected message in 'idle' state: {}", unexpectedMsg)
         Behaviors.same
 
-
   def processRequest(requestor: Option[ActorRef[Response]], startTime: Long): Behavior[Command] =
     Behaviors.receiveMessage:
       case SudokuDetailProcessorResponseWrapped(response) =>
@@ -192,4 +191,4 @@ class SudokuSolver private (context: ActorContext[SudokuSolver.Command], buffer:
   private def checkHaha(s: String): Unit =
     val haha = Symbol("Haha")
     val noHaha = Symbol("NoHaha")
-    if s `startsWith` haha.name then println(haha.name) else println(noHaha.name)
+    if s.`startsWith`(haha.name) then println(haha.name) else println(noHaha.name)

@@ -78,21 +78,22 @@ class SudokuDetailProcessor[DetailType <: SudokuDetailType: SudokuDetailProcesso
       case ResetSudokuDetailState =>
         operational(id, InitialDetailState, fullyReduced = false)
 
-
   private def mergeState(state: ReductionSet, cellUpdates: CellUpdates): ReductionSet =
     cellUpdates.foldLeft(state) { case (stateTally, (index, updatedCellContent)) =>
       stateTally.updated(index, stateTally(index) & updatedCellContent)
     }
 
   private def stateChanges(state: ReductionSet, updatedState: ReductionSet): CellUpdates =
-    state.zip(updatedState).zipWithIndex.foldRight(cellUpdatesEmpty):
-      case (((previousCellContent, updatedCellContent), index), cellUpdates)
-          if updatedCellContent != previousCellContent =>
-        (index, updatedCellContent) +: cellUpdates
+    state
+      .zip(updatedState)
+      .zipWithIndex
+      .foldRight(cellUpdatesEmpty):
+        case (((previousCellContent, updatedCellContent), index), cellUpdates)
+            if updatedCellContent != previousCellContent =>
+          (index, updatedCellContent) +: cellUpdates
 
-      case (_, cellUpdates) => cellUpdates
+        case (_, cellUpdates) => cellUpdates
 
   private def isFullyReduced(state: ReductionSet): Boolean =
     val allValuesInState = state.flatten
     allValuesInState == allValuesInState.distinct
-
