@@ -1,76 +1,59 @@
-# Scala 3 - new control and indentation based syntax
-
+# Top Level Definitions
 
 ## Background
 
-Scala 3 introduces some new syntax which can be divided in two categories:
+Scala 3 now has support for `Top Level Definitions`. In short, these replace Scala
+2's `package object`s. Definitions such as methods, [given] values, type aliases
+can be written at the top level.
 
-- A new control structure syntax
-- The possibility to use a significant indentation based syntax as opposed
-  to the traditional syntax using curly braces
+The goal of this exercise is to remove package objects from our codebase and
+replace it with `Top Level Definitions`.
 
-The Scala 3 compiler is able to rewrite existing source code to a different syntax.
-Note that this rewriting is done one step at a time. In other words, rewriting to 
-the new significant indentation based syntax _and_ to the new control structure syntax
-cannot be done in a single step.
+The following is a typical `package object`
 
-Changing the syntax is a reversible process (except that after going back to where
-one came from, the formatting may be different, but semantically equivalent).
+```scala
+package foo.bar
+
+package object baz {
+  def x(a: Int): Int = {
+    a
+  }
+}
+```
+
+This can be written in a toplevel definition as follows
+
+```scala
+package foo.bar.baz
+
+def x(a: Int): Int = {
+  a
+}
+```
 
 ## Steps
 
-- Have a look at the `project/Build.scala` file and notice this section at the top:
+Just a reminder: it's probably a good idea to have the Scala 3 `-source:future-migration`
+compiler option enabled permanently in the build definition of our project.
+If you haven't done this already, do it now:
 
-```scala
-  val rewriteNewSyntax = Seq("-rewrite", "-new-syntax")
-  val rewriteIndent = Seq("-rewrite", "-indent")
-  val rewriteNoIndent = Seq("-rewrite", "-noindent")
-  val rewriteOldSyntax = Seq("-rewrite", "-old-syntax")
-```
+- Change the compiler options in `project/CompileOptions.scala` to include
+  `-source:future-migration`.
 
-- If you didn't take a snapshot by committing the code changes at the end of the
-  previous exercise, do so now by executing the following command:
+Let's continue with the core topic of this exercise:
 
-```scala
-$ git commit -a -m "Snapshot before Scala 3 compiler syntax rewrites"
-```
+- Find any package objects available in the existing project
 
-You can now have the compiler rewrite the source code to switch to one of the
-alternative syntax options.
+- Create a new source file inside the same package using any meaningful name
 
-- The values mentioned above each contain a specific set of compiler options
-  for a specific syntax rewrite.
-- Note that syntax rewrites have to be executed one at a time. Also, consecutive
-  syntax rewrites have to be executed in a certain order. Make sure you understand
-  what's explained in the section named `Settings and Rewrites` at the end of the
-  [Optional Braces](https://dotty.epfl.ch/docs/reference/other-new-features/indentation.html)
-  section in the Scala 3 reference documentation.
+- Copy the contents of the `package object` to the newly created source file
 
-- Now go through the following sequence of actions:
-  - Add one of the syntax rewrite values to the compiler option section.
+- Remove the package object
 
-Question: you will need to concatenate the `Seq` of settings with the compiler
-option setting. How would you do that. If needed, consult the `Seq` Scala collection
-documentation.
+- Run the provided tests by executing the `test` command from the `sbt` prompt
+  and verify that all tests pass
 
-  - When the changes are applied, these will be picked up automatically by sbt because
-    the build has been configured as such.
-  - From the sbt prompt, run the `clean` command followed by running `compile`.
-    You will see that the compiler will _patch_ the source files.
-  - Repeat this by compiling the test code (`Test / compile`).
-  - Explore the changes applied by the rewrites (you can use the `git diff` command
-    for this).
-  - Repeat the process for the next rewrite, so that you end up with code using the
-    New Control Structures syntax and the Fewer Braces syntax.
-
-> For the remainder of the exercises in this course, we will use the New Control
-> Structure syntax and the Fewer Braces syntax.
-
-- Checkpoint the current state of the code by executing the following command:
-
-```scala
-$ git commit -a -m "Snapshot after Scala 3 compiler syntax rewrites"
-```
+- Verify that the application runs correctly
 
 ### Next steps
 
@@ -98,7 +81,7 @@ and adjust the font-size setting to your liking:
 ```
 body {
   font-size: 120% !important;
-  }
+    }
 ```
 
 ![IntelliJ Markdown viewer settings](images/Markdown-viewer-IntelliJ.png)
