@@ -5,7 +5,7 @@ import java.io.File
 import akka.actor.typed.scaladsl.{ActorContext, Behaviors, TimerScheduler}
 import akka.actor.typed.{ActorRef, Behavior}
 
-object SudokuProblemSender {
+object SudokuProblemSender:
 
   sealed trait Command
   case object SendNewSudoku extends Command
@@ -25,13 +25,12 @@ object SudokuProblemSender {
         new SudokuProblemSender(sudokuSolver, context, timers, sudokuSolverSettings).sending()
       }
     }
-}
 
 class SudokuProblemSender private (
     sudokuSolver: ActorRef[SudokuSolver.Command],
     context: ActorContext[SudokuProblemSender.Command],
     timers: TimerScheduler[SudokuProblemSender.Command],
-    sudokuSolverSettings: SudokuSolverSettings) {
+    sudokuSolverSettings: SudokuSolverSettings):
   import SudokuProblemSender.*
 
   private val solutionWrapper: ActorRef[SudokuSolver.Response] =
@@ -75,7 +74,7 @@ class SudokuProblemSender private (
   ) // on a 5 node RPi 4 based cluster in steady state, this can be lowered to about 6ms
 
   def sending(): Behavior[Command] =
-    Behaviors.receiveMessage {
+    Behaviors.receiveMessage:
       case SendNewSudoku =>
         context.log.debug("sending new sudoku problem")
         val nextRowUpdates = rowUpdatesSeq.next
@@ -84,5 +83,3 @@ class SudokuProblemSender private (
       case SolutionWrapper(solution: SudokuSolver.SudokuSolution) =>
         context.log.info(s"${SudokuIO.sudokuPrinter(solution)}")
         Behaviors.same
-    }
-}

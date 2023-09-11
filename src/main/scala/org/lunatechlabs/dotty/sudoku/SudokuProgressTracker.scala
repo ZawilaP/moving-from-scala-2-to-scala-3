@@ -3,7 +3,7 @@ package org.lunatechlabs.dotty.sudoku
 import akka.actor.typed.scaladsl.{ActorContext, Behaviors}
 import akka.actor.typed.{ActorRef, Behavior}
 
-object SudokuProgressTracker {
+object SudokuProgressTracker:
 
   sealed trait Command
   final case class NewUpdatesInFlight(count: Int) extends Command
@@ -18,17 +18,16 @@ object SudokuProgressTracker {
     Behaviors.setup { context =>
       new SudokuProgressTracker(rowDetailProcessors, context, sudokuSolver).trackProgress(updatesInFlight = 0)
     }
-}
 
 class SudokuProgressTracker private (
     rowDetailProcessors: Map[Int, ActorRef[SudokuDetailProcessor.Command]],
     context: ActorContext[SudokuProgressTracker.Command],
-    sudokuSolver: ActorRef[SudokuProgressTracker.Response]) {
+    sudokuSolver: ActorRef[SudokuProgressTracker.Response]):
 
   import SudokuProgressTracker.*
 
   def trackProgress(updatesInFlight: Int): Behavior[Command] =
-    Behaviors.receiveMessage {
+    Behaviors.receiveMessage:
       case NewUpdatesInFlight(updateCount) if updatesInFlight - 1 == 0 =>
         context.log.debug("NewUpdatesInFlight({}) - UpdatesInFlight={}", updateCount, updatesInFlight + updateCount)
         rowDetailProcessors.foreach { case (_, processor) =>
@@ -41,12 +40,11 @@ class SudokuProgressTracker private (
       case msg: SudokuDetailState =>
         context.log.error("Received unexpected message in state 'trackProgress': {}", msg)
         Behaviors.same
-    }
 
   def collectEndState(
       remainingRows: Int = 9,
       endState: Vector[SudokuDetailState] = Vector.empty[SudokuDetailState]): Behavior[Command] =
-    Behaviors.receiveMessage {
+    Behaviors.receiveMessage:
       case detail: SudokuDetailState if remainingRows == 1 =>
         sudokuSolver ! Result((detail +: endState).sortBy { case SudokuDetailState(idx, _) => idx }.map {
           case SudokuDetailState(_, state) => state
@@ -57,5 +55,3 @@ class SudokuProgressTracker private (
       case msg: NewUpdatesInFlight =>
         context.log.error("Received unexpected message in state 'collectEndState': {}", msg)
         Behaviors.same
-    }
-}

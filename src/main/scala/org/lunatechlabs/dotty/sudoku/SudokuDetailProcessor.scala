@@ -3,7 +3,7 @@ package org.lunatechlabs.dotty.sudoku
 import akka.actor.typed.scaladsl.{ActorContext, Behaviors}
 import akka.actor.typed.{ActorRef, Behavior}
 
-object SudokuDetailProcessor {
+object SudokuDetailProcessor:
 
   // My protocol
   sealed trait Command
@@ -24,55 +24,48 @@ object SudokuDetailProcessor {
       (new SudokuDetailProcessor[DetailType](context)).operational(id, state, fullyReduced = false)
     }
 
-  trait UpdateSender[A] {
+  trait UpdateSender[A]:
     def sendUpdate(id: Int, cellUpdates: CellUpdates)(implicit sender: ActorRef[Response]): Unit
     def processorName(id: Int): String
-  }
 
-  implicit val rowUpdateSender: UpdateSender[Row] = new UpdateSender[Row] {
+  implicit val rowUpdateSender: UpdateSender[Row] = new UpdateSender[Row]:
     def sendUpdate(id: Int, cellUpdates: CellUpdates)(implicit sender: ActorRef[Response]): Unit =
       sender ! RowUpdate(id, cellUpdates)
     def processorName(id: Int): String = s"row-processor-$id"
-  }
 
-  implicit val columnUpdateSender: UpdateSender[Column] = new UpdateSender[Column] {
+  implicit val columnUpdateSender: UpdateSender[Column] = new UpdateSender[Column]:
     def sendUpdate(id: Int, cellUpdates: CellUpdates)(implicit sender: ActorRef[Response]): Unit =
       sender ! ColumnUpdate(id, cellUpdates)
     def processorName(id: Int): String = s"col-processor-$id"
-  }
 
-  implicit val blockUpdateSender: UpdateSender[Block] = new UpdateSender[Block] {
+  implicit val blockUpdateSender: UpdateSender[Block] = new UpdateSender[Block]:
     def sendUpdate(id: Int, cellUpdates: CellUpdates)(implicit sender: ActorRef[Response]): Unit =
       sender ! BlockUpdate(id, cellUpdates)
     def processorName(id: Int): String = s"blk-processor-$id"
-  }
-}
 
 class SudokuDetailProcessor[DetailType <: SudokuDetailType: SudokuDetailProcessor.UpdateSender] private (
-    context: ActorContext[SudokuDetailProcessor.Command]) {
+    context: ActorContext[SudokuDetailProcessor.Command]):
 
   import ReductionRules.{reductionRuleOne, reductionRuleTwo}
   import SudokuDetailProcessor.*
 
   def operational(id: Int, state: ReductionSet, fullyReduced: Boolean): Behavior[Command] =
-    Behaviors.receiveMessage {
+    Behaviors.receiveMessage:
       case Update(cellUpdates, replyTo) if !fullyReduced =>
         val previousState = state
         val updatedState = mergeState(state, cellUpdates)
-        if (updatedState == previousState && cellUpdates != cellUpdatesEmpty) {
+        if updatedState == previousState && cellUpdates != cellUpdatesEmpty then
           replyTo ! SudokuDetailUnchanged
           Behaviors.same
-        } else {
+        else
           val transformedUpdatedState = reductionRuleTwo(reductionRuleOne(updatedState))
-          if (transformedUpdatedState == state) {
+          if transformedUpdatedState == state then
             replyTo ! SudokuDetailUnchanged
             Behaviors.same
-          } else {
+          else
             val updateSender = implicitly[UpdateSender[DetailType]]
             updateSender.sendUpdate(id, stateChanges(state, transformedUpdatedState))(replyTo)
             operational(id, transformedUpdatedState, isFullyReduced(transformedUpdatedState))
-          }
-        }
 
       case Update(_, replyTo) =>
         replyTo ! SudokuDetailUnchanged
@@ -85,7 +78,6 @@ class SudokuDetailProcessor[DetailType <: SudokuDetailType: SudokuDetailProcesso
       case ResetSudokuDetailState =>
         operational(id, InitialDetailState, fullyReduced = false)
 
-    }
 
   private def mergeState(state: ReductionSet, cellUpdates: CellUpdates): ReductionSet =
     cellUpdates.foldLeft(state) { case (stateTally, (index, updatedCellContent)) =>
@@ -93,17 +85,14 @@ class SudokuDetailProcessor[DetailType <: SudokuDetailType: SudokuDetailProcesso
     }
 
   private def stateChanges(state: ReductionSet, updatedState: ReductionSet): CellUpdates =
-    state.zip(updatedState).zipWithIndex.foldRight(cellUpdatesEmpty) {
+    state.zip(updatedState).zipWithIndex.foldRight(cellUpdatesEmpty):
       case (((previousCellContent, updatedCellContent), index), cellUpdates)
           if updatedCellContent != previousCellContent =>
         (index, updatedCellContent) +: cellUpdates
 
       case (_, cellUpdates) => cellUpdates
-    }
 
-  private def isFullyReduced(state: ReductionSet): Boolean = {
+  private def isFullyReduced(state: ReductionSet): Boolean =
     val allValuesInState = state.flatten
     allValuesInState == allValuesInState.distinct
-  }
 
-}

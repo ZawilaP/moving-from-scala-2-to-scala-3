@@ -6,7 +6,7 @@ import akka.actor.typed.{ActorRef, Behavior, SupervisorStrategy}
 
 import scala.concurrent.duration.*
 
-object SudokuSolver {
+object SudokuSolver:
 
   // SudokuSolver Protocol
   sealed trait Command
@@ -26,7 +26,7 @@ object SudokuSolver {
   import SudokuDetailProcessor.UpdateSender
 
   def genDetailProcessors[A <: SudokuDetailType: UpdateSender](
-      context: ActorContext[Command]): Map[Int, ActorRef[SudokuDetailProcessor.Command]] = {
+      context: ActorContext[Command]): Map[Int, ActorRef[SudokuDetailProcessor.Command]] =
     cellIndexesVector
       .map { index =>
         val detailProcessorName = implicitly[UpdateSender[A]].processorName(index)
@@ -34,22 +34,19 @@ object SudokuSolver {
         (index, detailProcessor)
       }
       .to(Map)
-  }
 
   def apply(sudokuSolverSettings: SudokuSolverSettings): Behavior[Command] =
     Behaviors
-      .supervise[Command] {
+      .supervise[Command]:
         Behaviors.withStash(capacity = sudokuSolverSettings.SudokuSolver.StashBufferSize) { buffer =>
           Behaviors.setup { context =>
             new SudokuSolver(context, buffer).idle()
           }
         }
-      }
       .onFailure[Exception](
         SupervisorStrategy.restartWithBackoff(minBackoff = 5.seconds, maxBackoff = 1.minute, randomFactor = 0.2))
-}
 
-class SudokuSolver private (context: ActorContext[SudokuSolver.Command], buffer: StashBuffer[SudokuSolver.Command]) {
+class SudokuSolver private (context: ActorContext[SudokuSolver.Command], buffer: StashBuffer[SudokuSolver.Command]):
   import CellMappings.*
   import SudokuSolver.*
 
@@ -68,7 +65,7 @@ class SudokuSolver private (context: ActorContext[SudokuSolver.Command], buffer:
     context.spawn(SudokuProgressTracker(rowDetailProcessors, progressTrackerResponseMapper), "sudoku-progress-tracker")
 
   def idle(): Behavior[Command] =
-    Behaviors.receiveMessage {
+    Behaviors.receiveMessage:
 
       case InitialRowUpdates(rowUpdates, sender) =>
         rowUpdates.foreach { case SudokuDetailProcessor.RowUpdate(row, cellUpdates) =>
@@ -81,12 +78,11 @@ class SudokuSolver private (context: ActorContext[SudokuSolver.Command], buffer:
         context.log.error("Received an unexpected message in 'idle' state: {}", unexpectedMsg)
         Behaviors.same
 
-    }
 
   def processRequest(requestor: Option[ActorRef[Response]], startTime: Long): Behavior[Command] =
-    Behaviors.receiveMessage {
+    Behaviors.receiveMessage:
       case SudokuDetailProcessorResponseWrapped(response) =>
-        response match {
+        response match
           case SudokuDetailProcessor.RowUpdate(rowNr, updates) =>
             updates.foreach { case (rowCellNr, newCellContent) =>
               context.log.debug("Incoming update for Row({},{})={} ", rowNr, rowCellNr, newCellContent)
@@ -172,33 +168,28 @@ class SudokuSolver private (context: ActorContext[SudokuSolver.Command], buffer:
             context.log.debug("SudokuDetailUnchanged")
             progressTracker ! SudokuProgressTracker.NewUpdatesInFlight(-1)
             Behaviors.same
-        }
       case SudokuProgressTrackerResponseWrapped(result) =>
-        result match {
+        result match
           case SudokuProgressTracker.Result(sudoku) =>
             context.log.info(s"Sudoku processing time: ${System.currentTimeMillis() - startTime} milliseconds")
             context.log.debug("Result: {}", sudoku)
             requestor.get ! SudokuSolution(sudoku)
             resetAllDetailProcessors()
             buffer.unstashAll(idle())
-        }
       case msg: InitialRowUpdates if buffer.isFull =>
         context.log.info(s"DROPPING REQUEST")
         Behaviors.same
       case msg: InitialRowUpdates =>
         buffer.stash(msg)
         Behaviors.same
-    }
 
   private def resetAllDetailProcessors(): Unit =
-    for {
+    for
       processors <- allDetailProcessors
       (_, processor) <- processors
-    } processor ! SudokuDetailProcessor.ResetSudokuDetailState
+    do processor ! SudokuDetailProcessor.ResetSudokuDetailState
 
-  private def checkHaha(s: String): Unit = {
+  private def checkHaha(s: String): Unit =
     val haha = Symbol("Haha")
     val noHaha = Symbol("NoHaha")
-    if (s `startsWith` haha.name) println(haha.name) else println(noHaha.name)
-  }
-}
+    if s `startsWith` haha.name then println(haha.name) else println(noHaha.name)
