@@ -2,7 +2,7 @@ Global / onChangedBuildSource := ReloadOnSourceChanges
 
 lazy val `moving-from-scala-2-to-scala-3` =
   (project in file(".")).settings(
-    scalaVersion := "2.13.11",
+    scalaVersion := "3.3.0",
     Compile / scalacOptions ++= CompileOptions.compileOptions,
     libraryDependencies ++= Dependencies.dependencies,
     testFrameworks += new TestFramework("munit.Framework"))
