@@ -1,143 +1,178 @@
-# Initial State
-
-## Documentation
-
-You may want to have look at the [Scala Language website](https://www3.scala-lang.org)
-and bookmark it in your favourite browser.
-
-It has a number of links among which:
-
-- The [Scala 3 Language Reference](https://docs3.scala-lang.org/scala3/reference).
-- The [Scala API documentation](https://docs3.scala-lang.org/api/all.html) for every version of Scala.
-- The [Scala 3 Book](https://docs3.scala-lang.org/scala3/book/introduction.html) which
-  gives you a concise introduction to all things Scala 3.
-
-## An Akka Typed/Scala based Sudoku Solver
+#  Rewriting deprecated Scala syntax
 
 ## Background
 
-This application, written in Scala 2, implements an Akka Typed/Scala
-based Sudoku Solver that is composed of 29 actors.
+In this exercise, we will play with the Scala 3 compiler's capability to report 
+and rewrite occurrences of some of the Scala 2 language features that are deprecated
+in Scala 2.13. In fact, this is a feature that also applies to syntax that gets
+deprecated between different Scala 3 releases.
 
-The application will also start up an instance of a Sudoku problem generator
-that continuously cycles through a series of Sudoko problems at a configurable
-rate, tunable via configuration.
-
-The course consists of a series of exercises in which you change the source code to leverage Scala 3 specific features. The application comes with tests that are basically the same across all exercises. The tests should pass at every stage: if they don't, you've broken something and you will need to fix it.
-
-We will first show you how to test and run the application.
-
+In order to do this, we first need to update the build definition to switch to the most recent
+version of Scala 3.
 
 ## Steps
 
-- The project uses sbt as build tool. Have a look at the build definition
-  in the `code/build.sbt` file to figure out what version of Scala it is
-  using. The full build definition is composed of `code/build.sbt` and
-  `code/project/Build.scala`. Other than inspecting the build definition,
-  is there another way to find out which Scala version is used?
+We will start by updating the sbt build definition to use the most recent version of Scala 3.
+Figuring out what this version is can be done in multiple ways. The first way is to look it
+up on the [scala-lang](https://www.scala-lang.org) website. As an alternative, we can use
+[`cs`](https://github.com/coursier/coursier) (Coursier) to look up the information. Here's how to do it with `cs`:
 
-- In the project's `code` folder, start an `sbt` session.
-
-- Compile the main code and the test code by respectively running the
-  `compile` and `Test/compile` commands from the `sbt` prompt.
-  Look for compilation warnings and fix these so that compilation no longer
-  produces any warning(s).
-
-- Run the provided tests by executing the `test` command from the `sbt` prompt
-  You should see output similar to the following:
-  
-```scala
-man [e] > Scala 2 to Scala 3 > sudoku solver initial state > test
-[info] Compiling 11 Scala sources to /Users/ericloots/tmp/lin/lunatech-scala-2-to-scala3-course/exercises/target/scala-0.24/classes ...
-[info] Compiling 6 Scala sources to /Users/ericloots/tmp/lin/lunatech-scala-2-to-scala3-course/exercises/target/scala-0.24/test-classes ...
-SLF4J: A number (1) of logging calls during the initialization phase have been intercepted and are
-SLF4J: now being replayed. These are subject to the filtering rules of the underlying logging system.
-SLF4J: See also http://www.slf4j.org/codes.html#replay
-[info] SudokuDetailProcessorSpec:
-[info] Sending no updates to a sudoku detail processor
-[info] - should result in sending a SudokuDetailUnchanged message
-[info] Sending an update to a fresh instance of the SudokuDetailProcessor that sets one cell to a single value
-[info] - should result in sending an update that reflects this update
-[info] Sending a series of subsequent Updates to a SudokuDetailProcessor
-[info] - should result in sending updates and ultimately return no changes
-[info] ReductionRuleSpec:
-[info] Applying reduction rules
-[info] - should Eliminate values in isolated complete sets from occurrences in other cells (First reduction rule)
-[info] - should Eliminate values in isolated complete sets of 5 values from occurrences in other cells (First reduction rule)
-[info] - should Eliminate values in 2 isolated complete sets of 3 values from occurrences in other cells (First reduction rule)
-[info] - should Eliminate values in shadowed complete sets from occurrences in the same cells (Second reduction rule)
-[info] - should Eliminate values in shadowed complete (6 value) sets from occurrences in the same cells (Second reduction rule)
-[info] CellMappingSpec:
-[info] Mapping row coordinates
-[info] - should result in correct column & block coordinates
-[info] Mapping column coordinates
-[info] - should result in correct row & block coordinates
-[info] Mapping block coordinates
-[info] - should result in correct row & column coordinates
-[info] Run completed in 562 milliseconds.
-[info] Total number of tests run: 11
-[info] Suites: completed 3, aborted 0
-[info] Tests: succeeded 11, failed 0, canceled 0, ignored 0, pending 0
-[info] All tests passed.
-[success] Total time: 9 s, completed 04 Jun 2020, 12:47:16
-man [e] > Scala 2 to Scala 3 > sudoku solver initial state >
+```bash
+$ cs complete-dep org.scala-lang:scala3-compiler_3: | grep -v RC
+3.0.0
+3.0.1
+3.0.2
+3.1.0
+3.1.1
+3.1.2
+3.1.3
+3.2.0
+3.2.1
+3.2.2
+3.3.0
+3.3.1
 ```
 
-- Run the Sodukosolver by executing the `runSolver` command from the `sbt` prompt.
+Now that you've figured out what the most recent version of the Scala 3 compiler is,
+adapt the build to utilise this version (change `code/build.sbt`).
 
-- Note that you can stop the application by hitting `Return` in the sbt session.
+As we need to have a look at the options supported by the Scala 3 compiler, we need to install
+the compiler first. Let's use Coursier to do this. For example, if we want to install version
+3.3.0 (which certainly isn't the most recent version at this moment...), we do this as follows:
 
-- Observe sudoku solver in action: you should see the following output:
+```bash
+$ cs install scalac:3.3.0
+<elided>
+Wrote scalac
 
-```scala
-man [e] > Scala 2 to Scala 3 > sudoku solver initial state > runSolver
-[info] running org.lunatechlabs.dotty.SudokuSolverMain -Dcluster-node-configuration.cluster-id=cluster-0 -Dcluster-node-configuration.node-hostname=localhost -Dakka.remote.artery.canonical.port=2550
-08:55:17 INFO  [] - Slf4jLogger started
-SLF4J: A number (1) of logging calls during the initialization phase have been intercepted and are
-SLF4J: now being replayed. These are subject to the filtering rules of the underlying logging system.
-SLF4J: See also http://www.slf4j.org/codes.html#replay
-Hit RETURN to stop solver
-08:55:18 INFO  [akka://sudoku-solver-system/user/sudoku-solver] - Sudoku processing time: 156 milliseconds
-08:55:18 INFO  [akka://sudoku-solver-system/user/sudoku-problem-sender] -
-+---+---+---+
-|712|948|635|
-|835|762|941|
-|496|531|278|
-+---+---+---+
-|147|896|352|
-|569|213|784|
-|283|475|169|
-+---+---+---+
-|324|659|817|
-|951|387|426|
-|678|124|593|
-+---+---+---+
-08:55:18 INFO  [akka://sudoku-solver-system/user/sudoku-solver] - Sudoku processing time: 44 milliseconds
-08:55:18 INFO  [akka://sudoku-solver-system/user/sudoku-problem-sender] -
-+---+---+---+
-|678|124|593|
-|951|387|426|
-|324|659|817|
-+---+---+---+
-|283|475|169|
-|569|213|784|
-|147|896|352|
-+---+---+---+
-|496|531|278|
-|835|762|941|
-|712|948|635|
-+---+---+---+
-.
-.
-.
+$ scalac -version
+Scala compiler version 3.3.0 -- Copyright 2002-2023, LAMP/EPFL
 ```
 
-- You can control the rate at which the Sudoku problem generator sends
-  problems by tweaking the setting `sudoku-solver.problem-sender.send-interval`
-  in the `sudokusolver.conf` configuration file.
+After having installed the compiler, we can have a look at its options.
+Let's first explore what the compiler can help us with when migrating our
+Scala 2.13 based application to Scala 3. The compiler has an option `-source`
+for which we can specify an additional argument. Here's the abbreviated output
+from `scalac -help`. Note that the (reformatted) output you get from this command
+may be different if you installed a different version.
+
+```bash
+$ scalac --help
+Usage: scalac <options> <source files>
+where possible standard options include:
+     -Dproperty=value  Pass -Dproperty=value directly to the runtime system.
+...
+<elided>
+...
+          -new-syntax  Require `then` and `do` in control expressions.
+              -indent  Together with -rewrite, remove {...} syntax when possible
+                       due to significant indentation.
+           -no-indent  Require classical {...} syntax, indentation is not
+                       significant.
+          -old-syntax  Require `(...)` around conditions.
+                       Default 80
+             -rewrite  When used in conjunction with a `...-migration` source
+                       version, rewrites sources to migrate to new version.
+                       (Scala.js only)
+...
+<elided>
+...
+              -source  source version
+                       Default 3.3
+                       Choices : 3.0-migration, 3.0, 3.1, 3.2-migration, 3.2,
+                       3.3-migration, 3.3, future-migration, future
+...
+<elided>
+...
+              -source  source version
+```
+
+We will add some code that triggers a number of compiler warnings which can
+be corrected by the compiler's code rewriting capabilities.
+
+Add the following code snippet to the `src/main/scala/org/lunatechlabs/dotty/sudoku/SudokuSolver.scala` source code file:
+
+```scala
+  private def checkHaha(s: String) {
+    val haha = 'Haha
+    val noHaha = 'NoHaha
+    if (s startsWith haha.name) println(haha.name) else println(noHaha.name)
+  }
+```
+
+> NOTE: The course repository you're using at the moment is a git repository.
+>      This will be helpful to see the changes that the compiler applies
+>      when re-writing source files
+
+- Let's start by taking a snapshot in git of the current state of the exercise
+  source code. Do this by executing the following commands in the exercises
+  root folder:
+
+```scala
+$ git commit -a -m "Snapshot before Scala 3 compiler syntax rewrites"
+```
+
+- Compile and investigate what the compiler reports.
+
+- Let the compiler correct the problem by adding two compiler options to the
+  one's that are already in place in the `project/Build.scala` build file:
+  -  `-rewrite` compiler option which will automatically rewrite the source code,
+     if possible.
+  - `-source:3.0-migration` 
+
+```scala
+scalacOptions ++=
+  Seq(
+    .
+    .
+    .
+    "-source:3.0-migration",
+    "-rewrite",
+  )
+```
+
+- Compile the code again and watch the magic... (at the `sbt` prompt, run `compile` and `Test/compile`.
+
+> NOTE:  The easiest way to see what the compiler changed is to run the `git diff` command.
+
+- After completing this step, repeat the process by setting `-source` to `3.2-migration`.
+
+We can take this process a step further by changing the compiler
+`-source` compiler option to `-source:future-migration`.
+This will apply some syntax changes that are already scheduled for a
+a Scala release after the one you're currently using. One example is the change of
+wildcard import syntax from using an asterix (`*`) instead of an underscore (`_`).
+
+- Try this out for yourself and check what is reported and what changes.
+- Add the "-rewrite" option to have the compiler apply all the reported
+  changes.
+- The end result should be that, after the compiler has applied its rewrites, the source code
+  compiles successfully.
+- Remove the `-rewrite` from `scalacOptions` in the sbt build definition.
+- Checkpoint the current state of your code by commiting the changes to git:
+
+```scala
+$ git commit -a -m "Snapshot after Scala 3 compiler syntax rewrites"
+```
+
+### Next steps
+
+After successfully completing the tasks in this exercise, move to the next one by
+running the `cmtc next-exercise` from the command line.
+
+> NOTE: The extra bit of code that was added via `cmtc pull-template ...` can either be left as-is
+>  or be removed. Your choice.
+
+And finally, **a tip**. You may perform a migration from Scala 2 to Scala 3 in
+different steps.
+After using the compiler's help via a given combination of `-rewrite` and
+`source:xxx-migration`,
+you may want to leave the latter enabled permanently in your Scala build, but
+take the first one out.
+By doing so, your attention will be drawn to code modifications that create issues (warning or errors)
+explicitly instead of them being corrected without you noticing them.
 
 ## Source code formatting & Markdown viewer in IntelliJ
-
 
 ### Source code formatting
 
@@ -145,24 +180,20 @@ Hit RETURN to stop solver
 in place in this project. scalafmt supports both Scala 2 and Scala 3. You can
 [re]format the code by running `scalafmtAll` from the sbt prompt. As we switch from
 Scala 2 to Scala 3, you need to make sure that a matching scalafmt configuration is
-in place.
+in place. In any of the exercises, you can run `cmtc pull-template .scalafmt.conf`
+to "pull-in" the correct configuration file.
 
-### Next steps
-
-After successfully completing the tasks in this exercise, move to the next one by
-running the `cmtc next-exercise` from the command line.
-
-### Markdown viewer in IntelliJ IDEA
+### Markdown viewer in IntelliJ
 
 The font size can be a bit too small for the taste of some people. You can change the
 Markdown zoom setting in IntelliJ by pasting the following CSS snippet in the
-markdown setting in _" Settings" -> "Languages & Frameworks" -> "Custom CSS -> CSS rules"_ and adjust the font-size setting to your liking:
+markdown setting in _" Settings" -> "Languages & Frameworks" -> "Custom CSS -> CSS rules"_
+and adjust the font-size setting to your liking:
 
 ```
 body {
   font-size: 120% !important;
-}
+  }
 ```
 
 ![IntelliJ Markdown viewer settings](images/Markdown-viewer-IntelliJ.png)
-
