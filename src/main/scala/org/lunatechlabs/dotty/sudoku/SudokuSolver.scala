@@ -9,19 +9,19 @@ import scala.concurrent.duration.*
 object SudokuSolver:
 
   // SudokuSolver Protocol
-  sealed trait Command
-  final case class InitialRowUpdates(
-      rowUpdates: Vector[SudokuDetailProcessor.RowUpdate],
-      replyTo: ActorRef[SudokuSolver.Response])
-      extends Command
-  // Wrapped responses
-  private final case class SudokuDetailProcessorResponseWrapped(response: SudokuDetailProcessor.Response)
-      extends Command
-  private final case class SudokuProgressTrackerResponseWrapped(response: SudokuProgressTracker.Response)
-      extends Command
+  enum Command:
+    case InitialRowUpdates(
+        rowUpdates: Vector[SudokuDetailProcessor.RowUpdate],
+        replyTo: ActorRef[SudokuSolver.Response])
+    // Wrapped responses
+    case SudokuDetailProcessorResponseWrapped(response: SudokuDetailProcessor.Response)
+    case SudokuProgressTrackerResponseWrapped(response: SudokuProgressTracker.Response)
+  export Command.*
+
   // My Responses
-  sealed trait Response
-  final case class SudokuSolution(sudoku: Sudoku) extends Response
+  enum Response:
+    case SudokuSolution(sudoku: Sudoku)
+  export Response.*
 
   import SudokuDetailProcessor.UpdateSender
 

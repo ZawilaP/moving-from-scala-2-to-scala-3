@@ -5,12 +5,15 @@ import akka.actor.typed.{ActorRef, Behavior}
 
 object SudokuProgressTracker:
 
-  sealed trait Command
-  final case class NewUpdatesInFlight(count: Int) extends Command
-  final case class SudokuDetailState(index: Int, state: ReductionSet) extends Command
+  enum Command:
+    case NewUpdatesInFlight(count: Int)
+    case SudokuDetailState(index: Int, state: ReductionSet)
+  export Command.*
+
   // My responses
-  sealed trait Response
-  final case class Result(sudoku: Sudoku) extends Response
+  enum Response:
+    case Result(sudoku: Sudoku)
+  export Response.*
 
   def apply(
       rowDetailProcessors: Map[Int, ActorRef[SudokuDetailProcessor.Command]],

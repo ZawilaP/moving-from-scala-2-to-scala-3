@@ -7,10 +7,11 @@ import akka.actor.typed.{ActorRef, Behavior}
 
 object SudokuProblemSender:
 
-  sealed trait Command
-  case object SendNewSudoku extends Command
-  // Wrapped responses
-  private final case class SolutionWrapper(result: SudokuSolver.Response) extends Command
+  enum Command:
+    case SendNewSudoku
+    // Wrapped responses
+    case SolutionWrapper(result: SudokuSolver.Response)
+  export Command.*
 
   private val rowUpdates: Vector[SudokuDetailProcessor.RowUpdate] =
     SudokuIO
