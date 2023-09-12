@@ -1,81 +1,113 @@
-# Enumerations and Export
+# Opaque Type Aliases
+
+> NOTE: this exercise is optional. Its purpose is to show that certain use
+>       cases of opaque type aliases sound great at first, but turn out
+>       to be very difficult to implement
 
 ## Background
 
-The Sudoku solver is an `Akka Typed` based application. It consists of 29 actors
-that interact by exchanging messages and adhering to a well-defined protocol,
-i.e. each actor has a number of message types it 'understands', the so-called
-`Command`s and a number of messages that it can send to other actors, usually in
-`Response` to messages it received earlier.
+An Opaque Type Alias can be used to provide the functionality of a "wrapper
+type" (i.e. a type that wraps, and therefore hides, another type) but without
+any runtime overhead. The aim is to provide additional type-safety at
+compile-time but then be stripped away at runtime. It is a powerful new feature
+of Scala 3 for supporting Information Hiding.
 
-In Scala 2, a typed actor uses ADTs to encode both `Command`s and `Responses`.
-Following is a typical protocol definition:
-
-```scala
-  sealed trait Command
-  final case class CommandA(n: Int)     extends Command
-  case      object CommandB             extends Command
-  final case class CommandC(n1: Double) extends Command
-  
-  sealed trait Response
-  final case class ResponseA(sum: Double) extends Response
-  case      object ResponseB              extends Response
-```
-
-This way of defining ADTs is perfectly valid in Scala 3, but there's an alternative, namely Scala 3 enumerations to encode the protocol in a more succinct way.
-
-The example protocol listed above can be encoded in the following fashion:
-
-```scala
-  enum Command:
-    case CommandA(n: Int)
-    case CommandB
-    case CommandC(n1: Double)
-
-  enum Response:
-    case ResponseA(sum: Double)
-    case ResponseB
-```
-
-The compiler will desugar this encoding in `case class`es and 
-`case object`s that are equivalent to the original encoding.
-
-There's one slight twist that comes with the new encoding: in the original
-encoding, the different case classes and objects reside at the package level,
-while in the enumeration based encoding, they are 'nested' one level deeper.
-For example, `CommandA`, qualified at the package level is at `Command.CommandA`.
-
-It would be inconvenient that, because of the switch to the elegant enum
-based encoding of the protocol, we would have to change all occurrences
-of `Command` or `Response` references to qualified ones. There's an easy way
-to avoid this by using Scala 3's `export` feature and we will apply this feature
-in this exercise.
-
+Opaque Type Aliases differ from plain Scala 2 Type Aliases in that the latter
+just provides a new name for a type but wherever this new name is used, the
+call-site still knows the details of the original type being aliased. With
+Opaque Type Aliases, the original type being aliased is hidden (or is opaque) at
+the call-site.
 
 ## Steps
 
-- Have a look at the protocol definitions of the different actors used in
-  the application:
+- Open the `TopLevelDefinitions.scala` file that you created during the exercise
+  on Top-Level Definitions. Here you should see a few type aliases that were
+  created to help with the readability of the code.
 
-  - `SudokuProblemSender`
-  - `SudokuSolver`
-  - `SudokuProgressTracker`
-  - `SudokuDetailProcessor`
+```scala
+...
+type CellContent = Set[Int]
+type ReductionSet = Vector[CellContent]
+type Sudoku = Vector[ReductionSet]
 
-- Change the current encoding to a Scala 3 enum based one
-  - Note that some of the actors have so-called `ResponseWrappers`. Leave
-    these unmodified: include them in the protocol for the time being: we
-    will remove these in the next exercise. You may have to change the
-    `ResponseWrapper` members from `private` to `public`. Again, this is
-    not really desirable, but we'll fix this in the exercise on Union types.
+type CellUpdates = Vector[(Int, Set[Int])]
+...
+```
 
-- Use Scala 3's `export` feature to avoid having to refactor the code to
-  utilise qualified references to the messages.
+To keep things manageable we will only focus on one of these type aliases for
+this exercise. Specifically we will convert the `ReductionSet` type aliases
+into an Opaque Type Alias.
 
-- Run the provided tests by executing the `test` command from the `sbt` prompt
-  and verify that all tests pass.
+- Start by moving the type alias to a new source file, `ReductionSet.scala`.
 
-- Verify that the application runs correctly.
+- Now add the keyword `opaque` in front of the type alias declaration and
+  recompile. Do you expect this to compile successfully? If not, why?
+
+- So it seems we need to tackle quite a few compilation errors... Let's get
+  started.
+
+> Tip: In general, try to fix all the compilation errors of this form
+>      `value {name} is not a member of ...` before tackling the other types
+>      of error like `Found: ... Required: ...`
+
+- The first errors are in the source file `ReductionRules.scala`. As this file
+  contains two extension methods on `ReductionSet`, moving these to `ReductionSet`
+  will resolve these errors.
+
+- Next up is an error linked to value `InitialDetailState`. It's a `ReductionSet`,
+  so again, move it to the `ReductionSet.scala` source file. You may have to
+  annotate its type.
+
+- Recompile and look at the first few error in source file `SudokuDetailProcessor.scala`.
+  These are linked to methods `mergeState`, `stateChanges`, and `isFullyReduced`.
+  As these 3 methods all take a `ReductionSet` as argument, it makes sense to
+  convert them to extension methods on `ReductionSet`. Do so, and adapt the
+  call sites to take this change into account. Note that you may have to change
+  the visibility of the methods.
+
+- Recompile and notice the errors in `SudokuIO.scala`. The relevant code is doing some
+  kind of pretty print of a `Vector[ReductionSet]` (which is a `Sudoku`; see the
+  type alias in `TopLevelDefinitions`). Move the method `SudokuRowPrinter` to
+  `ReductionSet` and convert it to an extension method (name it `printSudokuRow`).
+  Move the private `sudokuCellRepresentation` helper method along with it. Make
+  the necessary changes at the call site.
+
+- Recompile. Notice the extension methods on `SudokuField` that are now in error.
+  Move these to `ReductionSet.scala` and recompile. Methods `randomSwapAround` and
+  `toRowUpdates` show errors.
+
+- The core issue with method `randomSwapAround` is the mapping on a `ReductionSet`.
+  One way to tackle this is to add an extension method on `ReductionSet` with the
+  following signature: `def swapValues(shuffledValuesMap: Map[Int, Int]): ReductionSet`
+  Make the necessary changes to `randomSwapAround` to make it compile.
+
+- The core issue with method `toRowUpdates` is invoking `zipWithIndex` on `ReductionSet`.
+  Add a _private_ extension method `zipWithIndex` on `ReductionSet`. What should its
+  return type be?
+
+- We've almost eliminated all compilation errors. The last error can be corrected
+  by adding an apply method in a `ReductionSet` companion object that allows
+  one to create a `ReductionSet` from a `Vector[CellContent]`.
+
+- Once all the compilation errors are fixed, run the provided tests by executing
+  the `test` command from the `sbt` prompt and verify that all tests pass
+
+- Verify that the application runs correctly
+
+## Conclusions
+
+In summary, all we did was changing a single type alias into an opaque one.
+
+It does raise some questions:
+
+- Was it worth the effort?
+  - What have we gained, if anything?
+- Are there alternatives to this approach?
+- What are the gotchas
+
+There are more type aliases in the source code that potentially could be converted to
+opaque versions. One that sticks out is the `Sudoku` type alias
+(`type Sudoku = Vector[ReductionSet`). You may want to take a stab at converting it...
 
 ### Next steps
 
@@ -107,3 +139,4 @@ body {
 ```
 
 ![IntelliJ Markdown viewer settings](images/Markdown-viewer-IntelliJ.png)
+

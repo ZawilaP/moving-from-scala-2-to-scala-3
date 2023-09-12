@@ -9,7 +9,7 @@ object SudokuProblemSender:
 
   enum Command:
     case SendNewSudoku
-  export Command.SendNewSudoku
+  export Command.*
 
   type CommandAndResponses = Command | SudokuSolver.Response
 
@@ -27,7 +27,7 @@ object SudokuProblemSender:
           new SudokuProblemSender(sudokuSolver, context, timers, sudokuSolverSettings).sending()
         }
       }
-      .narrow
+      .narrow // Restrict the actor's [external] protocol to its set of commands
 
 class SudokuProblemSender private (
     sudokuSolver: ActorRef[SudokuSolver.Command],
