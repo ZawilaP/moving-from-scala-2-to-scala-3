@@ -13,6 +13,8 @@ object SudokuProblemSender:
 
   type CommandAndResponses = Command | SudokuSolver.Response
 
+  given CanEqual[Command, CommandAndResponses] = CanEqual.derived
+
   private val rowUpdates: Vector[SudokuDetailProcessor.RowUpdate] =
     SudokuIO
       .readSudokuFromFile(new File("sudokus/001.sudoku"))

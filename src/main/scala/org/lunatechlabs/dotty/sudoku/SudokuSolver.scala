@@ -22,6 +22,8 @@ object SudokuSolver:
 
   type CommandAndResponses = Command | SudokuDetailProcessor.Response | SudokuProgressTracker.Response
 
+  given CanEqual[SudokuDetailProcessor.Response, CommandAndResponses] = CanEqual.derived
+
   import SudokuDetailProcessor.UpdateSender
 
   def genDetailProcessors[A <: SudokuDetailType: UpdateSender](
@@ -152,7 +154,7 @@ class SudokuSolver private (
         }
         progressTracker ! SudokuProgressTracker.NewUpdatesInFlight(2 * updates.size - 1)
         Behaviors.same
-      case unchanged @ SudokuDetailProcessor.SudokuDetailUnchanged =>
+      case SudokuDetailProcessor.SudokuDetailUnchanged =>
         progressTracker ! SudokuProgressTracker.NewUpdatesInFlight(-1)
         Behaviors.same
 

@@ -4,6 +4,8 @@ opaque type ReductionSet = Vector[CellContent]
 
 val InitialDetailState: ReductionSet = cellIndexesVector.map(_ => initialCell)
 
+given CanEqual[ReductionSet, ReductionSet] = CanEqual.derived
+
 object ReductionSet:
   def apply(vrs: Vector[CellContent]): ReductionSet = vrs
 

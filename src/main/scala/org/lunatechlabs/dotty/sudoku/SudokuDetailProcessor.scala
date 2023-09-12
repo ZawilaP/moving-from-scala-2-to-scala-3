@@ -12,6 +12,8 @@ object SudokuDetailProcessor:
     case GetSudokuDetailState(replyTo: ActorRef[SudokuProgressTracker.Command])
   export Command.*
 
+  given CanEqual[Command, Command] = CanEqual.derived
+
   // My responses
   enum Response:
     case RowUpdate(id: Int, cellUpdates: CellUpdates)
