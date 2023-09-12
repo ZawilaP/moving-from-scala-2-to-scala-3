@@ -6,6 +6,7 @@ object CompileOptions {
   lazy val rewriteIndent = Seq("-rewrite", "-indent")
   lazy val rewriteNoIndent = Seq("-rewrite", "-noindent")
   lazy val rewriteOldSyntax = Seq("-rewrite", "-old-syntax")
+
   lazy val compileOptions = Seq("-unchecked", "-deprecation", "-encoding", "UTF-8", "-source:future-migration")
 }
 

@@ -13,9 +13,9 @@ object SudokuProblemSender:
   private final case class SolutionWrapper(result: SudokuSolver.Response) extends Command
 
   private val rowUpdates: Vector[SudokuDetailProcessor.RowUpdate] =
-    SudokuIO.readSudokuFromFile(new File("sudokus/001.sudoku")).map { case (rowIndex, update) =>
-      SudokuDetailProcessor.RowUpdate(rowIndex, update)
-    }
+    SudokuIO
+      .readSudokuFromFile(new File("sudokus/001.sudoku"))
+      .map((rowIndex, update) => SudokuDetailProcessor.RowUpdate(rowIndex, update))
 
   def apply(
       sudokuSolver: ActorRef[SudokuSolver.Command],
@@ -77,7 +77,7 @@ class SudokuProblemSender private (
     Behaviors.receiveMessage:
       case SendNewSudoku =>
         context.log.debug("sending new sudoku problem")
-        val nextRowUpdates = rowUpdatesSeq.next
+        val nextRowUpdates = rowUpdatesSeq.next()
         sudokuSolver ! SudokuSolver.InitialRowUpdates(nextRowUpdates, solutionWrapper)
         Behaviors.same
       case SolutionWrapper(solution: SudokuSolver.SudokuSolution) =>

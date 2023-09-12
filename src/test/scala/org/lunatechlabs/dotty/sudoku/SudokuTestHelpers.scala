@@ -1,5 +1,4 @@
 package org.lunatechlabs.dotty.sudoku
-import org.lunatechlabs.dotty.sudoku.ReductionRules.{applyReductionRuleOne, applyReductionRuleTwo}
 
 trait SudokuTestHelpers:
 

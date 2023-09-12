@@ -30,9 +30,9 @@ class SudokuProgressTracker private (
     Behaviors.receiveMessage:
       case NewUpdatesInFlight(updateCount) if updatesInFlight - 1 == 0 =>
         context.log.debug("NewUpdatesInFlight({}) - UpdatesInFlight={}", updateCount, updatesInFlight + updateCount)
-        rowDetailProcessors.foreach { case (_, processor) =>
-          processor ! SudokuDetailProcessor.GetSudokuDetailState(context.self)
-        }
+        rowDetailProcessors.foreach((_, processor) =>
+          processor ! SudokuDetailProcessor.GetSudokuDetailState(context.self))
+
         collectEndState()
       case NewUpdatesInFlight(updateCount) =>
         context.log.debug("NewUpdatesInFlight({}) - UpdatesInFlight={}", updateCount, updatesInFlight + updateCount)

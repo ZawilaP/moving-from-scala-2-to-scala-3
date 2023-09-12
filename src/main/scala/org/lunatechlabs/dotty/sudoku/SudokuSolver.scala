@@ -29,7 +29,7 @@ object SudokuSolver:
       context: ActorContext[Command]): Map[Int, ActorRef[SudokuDetailProcessor.Command]] =
     cellIndexesVector
       .map { index =>
-        val detailProcessorName = implicitly[UpdateSender[A]].processorName(index)
+        val detailProcessorName = summon[UpdateSender[A]].processorName(index)
         val detailProcessor = context.spawn(SudokuDetailProcessor(index), detailProcessorName)
         (index, detailProcessor)
       }
@@ -83,7 +83,7 @@ class SudokuSolver private (context: ActorContext[SudokuSolver.Command], buffer:
       case SudokuDetailProcessorResponseWrapped(response) =>
         response match
           case SudokuDetailProcessor.RowUpdate(rowNr, updates) =>
-            updates.foreach { case (rowCellNr, newCellContent) =>
+            updates.foreach { (rowCellNr, newCellContent) =>
               context.log.debug("Incoming update for Row({},{})={} ", rowNr, rowCellNr, newCellContent)
               val (columnNr, columnCellNr) = rowToColumnCoordinates(rowNr, rowCellNr)
               val columnUpdate = Vector(columnCellNr -> newCellContent)
@@ -110,7 +110,7 @@ class SudokuSolver private (context: ActorContext[SudokuSolver.Command], buffer:
             progressTracker ! SudokuProgressTracker.NewUpdatesInFlight(2 * updates.size - 1)
             Behaviors.same
           case SudokuDetailProcessor.ColumnUpdate(columnNr, updates) =>
-            updates.foreach { case (colCellNr, newCellContent) =>
+            updates.foreach { (colCellNr, newCellContent) =>
               context.log.debug("Incoming update for Column({},{})={} ", columnNr, colCellNr, newCellContent)
               val (rowNr, rowCellNr) = columnToRowCoordinates(columnNr, colCellNr)
               val rowUpdate = Vector(rowCellNr -> newCellContent)
@@ -135,7 +135,7 @@ class SudokuSolver private (context: ActorContext[SudokuSolver.Command], buffer:
             progressTracker ! SudokuProgressTracker.NewUpdatesInFlight(2 * updates.size - 1)
             Behaviors.same
           case SudokuDetailProcessor.BlockUpdate(blockNr, updates) =>
-            updates.foreach { case (blockCellNr, newCellContent) =>
+            updates.foreach { (blockCellNr, newCellContent) =>
               context.log.debug("Incoming update for Block({},{})={} ", blockNr, blockCellNr, newCellContent)
               val (rowNr, rowCellNr) = blockToRowCoordinates(blockNr, blockCellNr)
               val rowUpdate = Vector(rowCellNr -> newCellContent)
