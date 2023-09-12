@@ -9,9 +9,9 @@ object SudokuProblemSender:
 
   enum Command:
     case SendNewSudoku
-    // Wrapped responses
-    case SolutionWrapper(result: SudokuSolver.Response)
-  export Command.*
+  export Command.SendNewSudoku
+
+  type CommandAndResponses = Command | SudokuSolver.Response
 
   private val rowUpdates: Vector[SudokuDetailProcessor.RowUpdate] =
     SudokuIO
@@ -21,21 +21,20 @@ object SudokuProblemSender:
   def apply(
       sudokuSolver: ActorRef[SudokuSolver.Command],
       sudokuSolverSettings: SudokuSolverSettings): Behavior[Command] =
-    Behaviors.setup { context =>
-      Behaviors.withTimers { timers =>
-        new SudokuProblemSender(sudokuSolver, context, timers, sudokuSolverSettings).sending()
+    Behaviors
+      .setup[CommandAndResponses] { context =>
+        Behaviors.withTimers { timers =>
+          new SudokuProblemSender(sudokuSolver, context, timers, sudokuSolverSettings).sending()
+        }
       }
-    }
+      .narrow
 
 class SudokuProblemSender private (
     sudokuSolver: ActorRef[SudokuSolver.Command],
-    context: ActorContext[SudokuProblemSender.Command],
-    timers: TimerScheduler[SudokuProblemSender.Command],
+    context: ActorContext[SudokuProblemSender.CommandAndResponses],
+    timers: TimerScheduler[SudokuProblemSender.CommandAndResponses],
     sudokuSolverSettings: SudokuSolverSettings):
   import SudokuProblemSender.*
-
-  private val solutionWrapper: ActorRef[SudokuSolver.Response] =
-    context.messageAdapter(response => SolutionWrapper(response))
 
   private val initialSudokuField = rowUpdates.toSudokuField
 
@@ -74,13 +73,13 @@ class SudokuProblemSender private (
     problemSendInterval
   ) // on a 5 node RPi 4 based cluster in steady state, this can be lowered to about 6ms
 
-  def sending(): Behavior[Command] =
+  def sending(): Behavior[CommandAndResponses] =
     Behaviors.receiveMessage:
       case SendNewSudoku =>
         context.log.debug("sending new sudoku problem")
         val nextRowUpdates = rowUpdatesSeq.next()
-        sudokuSolver ! SudokuSolver.InitialRowUpdates(nextRowUpdates, solutionWrapper)
+        sudokuSolver ! SudokuSolver.InitialRowUpdates(nextRowUpdates, context.self)
         Behaviors.same
-      case SolutionWrapper(solution: SudokuSolver.SudokuSolution) =>
+      case solution: SudokuSolver.SudokuSolution =>
         context.log.info(s"${SudokuIO.sudokuPrinter(solution)}")
         Behaviors.same
